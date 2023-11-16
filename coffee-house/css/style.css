@@ -88,5 +88,7 @@ a {
 }
 
 body {
-  font: 400 16px "Inter", sans-serif;
+  font: 600 16px "Inter", sans-serif;
+  color: #403F3D;
+  background-color: #E1D4C9;
 }

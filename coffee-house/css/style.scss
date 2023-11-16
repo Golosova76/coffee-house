@@ -26,5 +26,9 @@
 @import "_null";
 
 body {
-  font: $fontWeight400 $fontSize16 $fontFamily;
+  font: $fontWeight $fontSize $fontFamily;
+  color: $colorTextDark;
+  background-color: $mainBackgroundColor;
 }
+
+//============= Общие стили ===============//
