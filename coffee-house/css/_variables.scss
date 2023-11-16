@@ -1,7 +1,6 @@
 $fontFamily: "Inter", sans-serif;
 $fontSize: 16px;
 $fontWeight: 600;
-$fontStyle: italic;
 $fontLineHeight: 150%;
 
 
@@ -45,10 +44,10 @@ $mainBackgroundColor: $colorBackgroundBody;
 
 @mixin body-medium {
   font-weight: 400;
-  line-height: $fontHeight150;
+  line-height: $fontLineHeight;
 }
 
-@mixin body-medium {
+@mixin body-caption {
   font-size: 10px;
   line-height: 140%;
 }
