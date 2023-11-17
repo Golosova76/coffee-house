@@ -256,12 +256,15 @@ html {
   margin-bottom: 40px;
 }
 .enjoy__menu {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 .enjoy__menu:hover span {
   -webkit-transition: -webkit-transform 0.5s ease 0s;
@@ -317,4 +320,21 @@ html {
 }
 .enjoy__image-ibg img {
   border-radius: 40px;
+}
+
+.favorite__container {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+.favorite__title {
+  font-size: 60px;
+  line-height: 125%;
+  text-align: center;
+}
+.favorite__title span {
+  font-style: italic;
+  color: #B0907A;
+}
+.favorite__title:not(:last-child) {
+  margin-bottom: 40px;
 }
