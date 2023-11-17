@@ -36,38 +36,101 @@
 }
 
 .slider {
+  position: relative;
 
   // .slider__wrapper
 
   &__wrapper {}
 
+  // .slider__items
+
+  &__items {}
+
   // .slider__item
 
-  &__item {}
+  &__item {
+    max-width: 480px;
+    margin: 0 auto;
+    text-align: center;
+  }
 
   // .slider__navigation
 
-  &__navigation {}
+  &__navigation {
+    &:not(:last-child) {
+      margin-bottom: 40px;
+    }
+  }
 
   // .slider__button-prev
 
-  &__button-prev {}
+  &__button-prev {
+    position: absolute;
+    top: 42.8%;
+    left: 0.3%;
+    border-radius: 100px;
+    border: 1px solid $colorBorderDark;
+    width: 60px;
+    height: 60px;
+
+    svg {
+      stroke: $colorTextDark;
+    }
+
+    &:hover {
+      background-color: $colorBackgroundContainer;
+
+      svg {
+        stroke: $colorTextLight;
+      }
+    }
+  }
 
   // .slider__button-next
 
-  &__button-next {}
+  &__button-next {
+    position: absolute;
+    top: 42.8%;
+    right: 0.3%;
+    border-radius: 100px;
+    border: 1px solid $colorBorderDark;
+    width: 60px;
+    height: 60px;
+
+    svg {
+      stroke: $colorTextDark;
+    }
+
+    &:hover {
+      background-color: $colorBackgroundContainer;
+
+      svg {
+        stroke: $colorTextLight;
+      }
+    }
+  }
 
   // .slider__pagination
 
-  &__pagination {}
+  &__pagination {
+    display: flex;
+    column-gap: 12px;
+    justify-content: center;
+  }
 
   // .slider__line
 
   &__line {
+    border-radius: 100px;
+    width: 40px;
+    height: 4px;
+    background-color: $colorBorderLight;
 
     // .slider__line_one
 
-    &_one {}
+    &_one {
+      background-color: $colorBorderDark;
+    }
 
     // .slider__line_two
 
@@ -83,17 +146,37 @@
 
   // .content__image-ibg
 
-  &__image-ibg {}
+  &__image-ibg {
+    padding-bottom: 100%;
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
 
   // .content__title
 
-  &__title {}
+  &__title {
+    @include heading-three;
+
+    &:not(:last-child) {
+      margin-bottom: 16px;
+    }
+  }
 
   // .content__text
 
-  &__text {}
+  &__text {
+    @include body-medium;
+
+    &:not(:last-child) {
+      margin-bottom: 16px;
+    }
+  }
 
   // .content__price
 
-  &__price {}
+  &__price {
+    @include heading-three;
+  }
 }
