@@ -367,11 +367,13 @@ html {
 .slider__button-prev svg {
   stroke: #403F3D;
 }
-.slider__button-prev:hover {
-  background-color: #665F55;
-}
-.slider__button-prev:hover svg {
-  stroke: #E1D4C9;
+@media (any-hover: hover) {
+  .slider__button-prev:hover {
+    background-color: #665F55;
+  }
+  .slider__button-prev:hover svg {
+    stroke: #E1D4C9;
+  }
 }
 .slider__button-next {
   position: absolute;
@@ -517,4 +519,100 @@ html {
 .image-about__img_four {
   grid-row: span 2;
   max-height: 590px;
+}
+
+.mobile__container {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.mobile__body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 100px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.mobile__content {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 50%;
+          flex: 0 1 50%;
+}
+.mobile__title {
+  font-size: 60px;
+  line-height: 125%;
+}
+.mobile__title:not(:last-child) {
+  margin-bottom: 40px;
+}
+.mobile__title span {
+  font-style: italic;
+  color: #B0907A;
+}
+.mobile__text {
+  font-weight: 400;
+  line-height: 150%;
+}
+.mobile__text:not(:last-child) {
+  margin-bottom: 40px;
+}
+.mobile__links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+}
+.mobile__link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 12px 20px;
+  border-radius: 100px;
+  border: 1px solid #665F55;
+  max-width: 200px;
+  max-height: 64px;
+  width: 100%;
+}
+.mobile__link svg {
+  margin-right: 8px;
+  fill: #403F3D;
+}
+@media (any-hover: hover) {
+  .mobile__link:hover {
+    background-color: #665F55;
+    color: #E1D4C9;
+  }
+  .mobile__link:hover svg {
+    fill: #E1D4C9;
+  }
+}
+.mobile__items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 2.5px;
+}
+.mobile__top {
+  font-size: 10px;
+  line-height: 140%;
+}
+.mobile__bottom {
+  line-height: 150%;
+}
+.mobile__image-ibg {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 50%;
+          flex: 0 1 50%;
+  padding-bottom: 46.33%;
 }
