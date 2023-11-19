@@ -1,0 +1,117 @@
+.visually-hidden:not(:focus):not(:active) {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.about {
+
+  // .about__container
+
+  &__container {
+    padding-bottom: 50px;
+    padding-top: 50px;
+  }
+
+  // .about__text
+
+  &__text {
+    @include heading-two;
+    @include margin-bottom40;
+
+    span {
+      font-style: italic;
+      color: $colorTextAccent;
+    }
+  }
+
+  // .about__images
+
+  &__images {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-gap: 40px;
+  }
+}
+
+
+.image-about {
+
+  // .image-about__line
+
+  &__line {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-gap: 40px;
+
+    // .image-about__line_left
+
+    &_left {}
+
+    // .image-about__line_right
+
+    &_right {}
+  }
+
+  // .image-about__img
+
+  &__img {
+    //position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 660px;
+    width: 100%;
+
+    img {
+      transition: all 0.3s ease 0s;
+
+      @media (any-hover: hover) {
+        &:hover {
+          transform: scale(0.91);
+        }
+      }
+    }
+
+
+    // .image-about__img_one
+
+    &_one {
+      grid-row: span 2;
+      max-height: 590px;
+    }
+
+    // .image-about__img_two
+
+    &_two {
+      grid-row: span 1;
+      max-height: 430px;
+    }
+
+    // .image-about__img_three
+
+    &_three {
+      grid-row: span 1;
+      max-height: 430px;
+    }
+
+    // .image-about__img_four
+
+    &_four {
+      grid-row: span 2;
+      max-height: 590px;
+    }
+  }
+}

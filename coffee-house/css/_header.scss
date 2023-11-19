@@ -47,8 +47,10 @@
       transition: transform 0.5s ease;
     }
 
-    &:hover::before {
-      transform: scaleX(1);
+    @media (any-hover: hover) {
+      &:hover::before {
+        transform: scaleX(1);
+      }
     }
   }
 }
@@ -92,8 +94,10 @@
       transition: transform 0.5s ease;
     }
 
-    &:hover::before {
-      transform: scaleX(1);
+    @media (any-hover: hover) {
+      &:hover::before {
+        transform: scaleX(1);
+      }
     }
   }
 }

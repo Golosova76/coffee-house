@@ -177,10 +177,12 @@ html {
   transition: transform 0.5s ease;
   transition: transform 0.5s ease, -webkit-transform 0.5s ease;
 }
-.header__icon:hover::before {
-  -webkit-transform: scaleX(1);
-      -ms-transform: scaleX(1);
-          transform: scaleX(1);
+@media (any-hover: hover) {
+  .header__icon:hover::before {
+    -webkit-transform: scaleX(1);
+        -ms-transform: scaleX(1);
+            transform: scaleX(1);
+  }
 }
 
 .menu__body {
@@ -217,10 +219,12 @@ html {
   transition: transform 0.5s ease;
   transition: transform 0.5s ease, -webkit-transform 0.5s ease;
 }
-.menu__link:hover::before {
-  -webkit-transform: scaleX(1);
-      -ms-transform: scaleX(1);
-          transform: scaleX(1);
+@media (any-hover: hover) {
+  .menu__link:hover::before {
+    -webkit-transform: scaleX(1);
+        -ms-transform: scaleX(1);
+            transform: scaleX(1);
+  }
 }
 
 .enjoy__container {
@@ -266,19 +270,21 @@ html {
       -ms-flex-align: start;
           align-items: flex-start;
 }
-.enjoy__menu:hover span {
-  -webkit-transition: -webkit-transform 0.5s ease 0s;
-  transition: -webkit-transform 0.5s ease 0s;
-  transition: transform 0.5s ease 0s;
-  transition: transform 0.5s ease 0s, -webkit-transform 0.5s ease 0s;
-  -webkit-transform: translateX(-20%);
-      -ms-transform: translateX(-20%);
-          transform: translateX(-20%);
-}
-.enjoy__menu:hover svg {
-  -webkit-transition: opacity 0.5s ease 0s;
-  transition: opacity 0.5s ease 0s;
-  opacity: 1;
+@media (any-hover: hover) {
+  .enjoy__menu:hover span {
+    -webkit-transition: -webkit-transform 0.5s ease 0s;
+    transition: -webkit-transform 0.5s ease 0s;
+    transition: transform 0.5s ease 0s;
+    transition: transform 0.5s ease 0s, -webkit-transform 0.5s ease 0s;
+    -webkit-transform: translateX(-20%);
+        -ms-transform: translateX(-20%);
+            transform: translateX(-20%);
+  }
+  .enjoy__menu:hover svg {
+    -webkit-transition: opacity 0.5s ease 0s;
+    transition: opacity 0.5s ease 0s;
+    opacity: 1;
+  }
 }
 .enjoy__link {
   display: -webkit-box;
@@ -324,7 +330,7 @@ html {
 
 .favorite__container {
   padding-top: 100px;
-  padding-bottom: 100px;
+  padding-bottom: 50px;
 }
 .favorite__title {
   font-size: 60px;
@@ -428,4 +434,87 @@ html {
 .content__price {
   font-size: 24px;
   line-height: 125%;
+}
+
+.visually-hidden:not(:focus):not(:active) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  -webkit-clip-path: inset(100%);
+          clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.about__container {
+  padding-bottom: 50px;
+  padding-top: 50px;
+}
+.about__text {
+  font-size: 60px;
+  line-height: 125%;
+}
+.about__text:not(:last-child) {
+  margin-bottom: 40px;
+}
+.about__text span {
+  font-style: italic;
+  color: #B0907A;
+}
+.about__images {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-gap: 40px;
+}
+
+.image-about__line {
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-gap: 40px;
+}
+.image-about__img {
+  overflow: hidden;
+  border-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: 660px;
+  width: 100%;
+}
+.image-about__img img {
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+@media (any-hover: hover) {
+  .image-about__img img:hover {
+    -webkit-transform: scale(0.91);
+        -ms-transform: scale(0.91);
+            transform: scale(0.91);
+  }
+}
+.image-about__img_one {
+  grid-row: span 2;
+  max-height: 590px;
+}
+.image-about__img_two {
+  grid-row: span 1;
+  max-height: 430px;
+}
+.image-about__img_three {
+  grid-row: span 1;
+  max-height: 430px;
+}
+.image-about__img_four {
+  grid-row: span 2;
+  max-height: 590px;
 }

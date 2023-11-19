@@ -29,9 +29,7 @@
       color: $colorTextAccent;
     }
 
-    &:not(:last-child) {
-      margin-bottom: 40px;
-    }
+    @include margin-bottom40;
   }
 
   // .enjoy__text
@@ -39,10 +37,7 @@
   &__text {
     @include body-medium;
     color: $colorTextLight;
-
-    &:not(:last-child) {
-      margin-bottom: 40px;
-    }
+    @include margin-bottom40;
   }
 
   // .enjoy__menu
@@ -52,15 +47,17 @@
     justify-content: flex-start;
     align-items: flex-start;
 
-    &:hover {
-      span {
-        transition: transform 0.5s ease 0s;
-        transform: translateX(-20%);
-      }
+    @media (any-hover: hover) {
+      &:hover {
+        span {
+          transition: transform 0.5s ease 0s;
+          transform: translateX(-20%);
+        }
 
-      svg {
-        transition: opacity 0.5s ease 0s;
-        opacity: 1;
+        svg {
+          transition: opacity 0.5s ease 0s;
+          opacity: 1;
+        }
       }
     }
   }

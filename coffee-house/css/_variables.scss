@@ -56,3 +56,9 @@ $mainBackgroundColor: $colorBackgroundBody;
   font-size: 32px;
   line-height: 125%;
 }
+
+@mixin margin-bottom40 {
+  &:not(:last-child) {
+    margin-bottom: 40px;
+  }
+}

@@ -11,7 +11,7 @@
 
   &__container {
     padding-top: 100px;
-    padding-bottom: 100px;
+    padding-bottom: 50px;
   }
 
   // .favorite__title
@@ -25,9 +25,7 @@
       color: $colorTextAccent;
     }
 
-    &:not(:last-child) {
-      margin-bottom: 40px;
-    }
+    @include margin-bottom40;
   }
 
   // .favorite__slider
@@ -57,9 +55,7 @@
   // .slider__navigation
 
   &__navigation {
-    &:not(:last-child) {
-      margin-bottom: 40px;
-    }
+    @include margin-bottom40;
   }
 
   // .slider__button-prev
