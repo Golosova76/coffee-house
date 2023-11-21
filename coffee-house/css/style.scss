@@ -1,0 +1,97 @@
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/Inter-Regular.woff2") format("woff2"), url("../fonts/Inter-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/Inter-SemiBold.woff2") format("woff2"), url("../fonts/Inter-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/Inter-SemiBoldItalic.woff2") format("woff2"), url("../fonts/Inter-SemiBoldItalic.woff") format("woff");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+
+@import "_variables";
+@import "_null";
+
+body {
+  font: $fontWeight $fontSize $fontFamily;
+  color: $colorTextDark;
+  background-color: $mainBackgroundColor;
+}
+
+//============= Общие стили ===============//
+
+html {
+  scroll-behavior: smooth;
+}
+
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  // Прижимаем footer
+  >main {
+    flex: 1 1 auto;
+  }
+
+  // Фикс для слайдеров
+  >* {
+    min-width: 0;
+  }
+}
+
+[class*="__container"] {
+  max-width: 1440px; // сначала контейнер был 1360 как на макете, стал 1440 изза padding 40px
+  margin: 0 auto;
+  padding: 0 40px;
+
+  @media (max-width: 1200px) {
+    // max-width: 970px;
+  }
+
+  @media (max-width: 1087px) {
+    // max-width: 970px;
+  }
+
+  @media (max-width: 991.98px) {
+    // max-width: 750px;
+  }
+
+  @media (max-width: 767.98px) {
+    // max-width: none;
+  }
+}
+
+[class*="-ibg"] {
+  position: relative;
+
+  img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+  }
+}
+
+@import "_header";
+@import "_enjoy";
+@import "_favorite";
+@import "_about";
+@import "_mobile";
+@import "_footer";

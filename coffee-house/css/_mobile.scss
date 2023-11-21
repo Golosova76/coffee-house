@@ -1,0 +1,116 @@
+.mobile {
+
+  // .mobile__container
+
+  &__container {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  // .mobile__body
+
+  &__body {
+    display: flex;
+    gap: 100px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  // .mobile__content
+
+  &__content {
+    flex: 0 1 50%;
+  }
+
+  // .mobile__title
+
+  &__title {
+    @include heading-two;
+    @include margin-bottom40;
+
+    span {
+      font-style: italic;
+      color: $colorTextAccent;
+    }
+  }
+
+  // .mobile__text
+
+  &__text {
+    @include body-medium;
+    @include margin-bottom40;
+  }
+
+  // .mobile__links
+
+  &__links {
+    display: flex;
+    gap: 20px;
+  }
+
+  // .mobile__link
+
+  &__link {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    border-radius: 100px;
+    border: 1px solid $colorBorderDark;
+    max-width: 200px;
+    max-height: 64px;
+    width: 100%;
+    transition: all 0.4s ease 0s;
+
+    svg {
+      margin-right: 8px;
+      fill: $colorTextDark;
+      transition: all 0.4s ease 0s;
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: $colorBackgroundContainer;
+        color: $colorTextLight;
+
+        svg {
+          fill: $colorTextLight;
+        }
+      }
+    }
+
+    // .mobile__link_app
+
+    &_app {}
+
+    // .mobile__link_google
+
+    &_google {}
+  }
+
+  // .mobile__items
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5px;
+  }
+
+  // .mobile__top
+
+  &__top {
+    @include body-caption;
+  }
+
+  // .mobile__bottom
+
+  &__bottom {
+    line-height: $fontLineHeight;
+  }
+
+  // .mobile__image-ibg
+
+  &__image-ibg {
+    flex: 0 1 50%;
+    padding-bottom: 46.33%;
+  }
+}
