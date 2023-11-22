@@ -750,3 +750,207 @@ html {
 .contact-footer__schedule {
   line-height: 150%;
 }
+
+.menu__container {
+  padding-bottom: 100px;
+}
+.menu__text {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 60px;
+  line-height: 125%;
+  text-align: center;
+}
+.menu__text:not(:last-child) {
+  margin-bottom: 40px;
+}
+.menu__text span {
+  font-style: italic;
+  color: #B0907A;
+}
+.tabs-menu__nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 16px;
+}
+.tabs-menu__nav:not(:last-child) {
+  margin-bottom: 40px;
+}
+.tabs-menu__button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 8px;
+     -moz-column-gap: 8px;
+          column-gap: 8px;
+  border-radius: 100px;
+  border: 1px solid #C1B6AD;
+  padding: 6px 16px 9px 6px;
+  -webkit-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
+}
+.tabs-menu__button:hover {
+  background-color: #665F55;
+}
+.tabs-menu__button:hover .tabs-menu__btn-img {
+  background-color: #E1D4C9;
+}
+.tabs-menu__button:hover .tabs-menu__btn-text {
+  color: #E1D4C9;
+}
+.tabs-menu__button.menu-button-active {
+  background-color: #665F55;
+  pointer-events: none;
+}
+.tabs-menu__button.menu-button-active .tabs-menu__btn-img {
+  background-color: #E1D4C9;
+}
+.tabs-menu__button.menu-button-active .tabs-menu__btn-text {
+  color: #E1D4C9;
+}
+.tabs-menu__btn-img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 100px;
+  background-color: #C1B6AD;
+  width: 30px;
+  height: 30px;
+  -webkit-transition: background-color 0.4s ease 0s;
+  transition: background-color 0.4s ease 0s;
+}
+.tabs-menu__btn-img img {
+  display: block;
+  max-width: 100%;
+}
+.tabs-menu__btn-text {
+  font-weight: 600;
+  line-height: 150%;
+  -webkit-transition: color 0.3s ease 0s;
+  transition: color 0.3s ease 0s;
+}
+.tabs-menu__body {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+.tabs-menu__card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-radius: 40px;
+  border: 1px solid #C1B6AD;
+  max-width: 310px;
+  width: 100%;
+  min-height: 506px;
+  cursor: pointer;
+}
+@media (any-hover: hover) {
+  .tabs-menu__card:hover .tabs-menu__image img {
+    -webkit-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+    -webkit-transform: scale(0.92);
+        -ms-transform: scale(0.92);
+            transform: scale(0.92);
+  }
+}
+.tabs-menu__image {
+  position: relative;
+  overflow: hidden;
+  border-radius: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: 310px;
+  max-height: 310px;
+  width: 100%;
+}
+.tabs-menu__image img {
+  -webkit-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
+  border-radius: 40px;
+}
+.tabs-menu__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 20px;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+.tabs-menu__title {
+  font-size: 24px;
+  line-height: 125%;
+  margin-bottom: 12px;
+}
+.tabs-menu__text {
+  font-weight: 400;
+  line-height: 150%;
+}
+.tabs-menu__price {
+  font-size: 24px;
+  line-height: 125%;
+  margin-top: auto;
+}
+
+.footer__container_menu {
+  padding-top: 0;
+}
+
+.header__icon-menu {
+  position: relative;
+  pointer-events: none;
+  padding-right: 28px;
+}
+.header__icon-menu::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  background-image: url(../img/header/coffee-cup.svg);
+}
+.header__icon-menu::before {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #403F3D;
+}
