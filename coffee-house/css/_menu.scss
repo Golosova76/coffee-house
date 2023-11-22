@@ -2,7 +2,9 @@
 
   // .menu__container
 
-  &__container {}
+  &__container {
+    //padding-bottom: 100px;
+  }
 
   // .menu__text
 
@@ -98,5 +100,91 @@
     font-weight: $fontWeight;
     line-height: $fontLineHeight;
     transition: color 0.3s ease 0s;
+  }
+
+  /////////////////////////////////////////////
+
+  // .tabs-menu__body
+
+  &__body {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+  }
+
+  // .tabs-menu__item
+
+  &__item {}
+
+  // .tabs-menu__card
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 40px;
+    border: 1px solid $colorBorderLight;
+    max-width: 310px;
+    width: 100%;
+    min-height: 506px;
+    cursor: pointer;
+
+    @media (any-hover: hover) {
+      &:hover {
+        .tabs-menu__image {
+          img {
+            transition: all 0.5s ease 0s;
+            transform: scale(0.92);
+          }
+        }
+      }
+    }
+  }
+
+  // .tabs-menu__image
+
+  &__image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 310px;
+    max-height: 310px;
+    width: 100%;
+
+    img {
+      transition: all 0.5s ease 0s;
+      border-radius: 40px;
+    }
+  }
+
+  // .tabs-menu__content
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    flex-grow: 1;
+  }
+
+  // .tabs-menu__title
+
+  &__title {
+    @include heading-three;
+    margin-bottom: 12px;
+  }
+
+  // .tabs-menu__text
+
+  &__text {
+    @include body-medium;
+  }
+
+  // .tabs-menu__price
+
+  &__price {
+    @include heading-three;
+    margin-top: auto;
   }
 }
