@@ -1,0 +1,102 @@
+.menu {
+
+  // .menu__container
+
+  &__container {}
+
+  // .menu__text
+
+  &__text {
+    max-width: 800px;
+    margin: 0 auto;
+    @include heading-two;
+    @include margin-bottom40;
+    text-align: center;
+
+    span {
+      font-style: italic;
+      color: $colorTextAccent;
+    }
+  }
+
+  // .menu__tabs
+
+  &__tabs {}
+}
+
+.tabs-menu {
+
+  // .tabs-menu__nav
+
+  &__nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    @include margin-bottom40;
+  }
+
+  // .tabs-menu__button
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 8px;
+    border-radius: 100px;
+    border: 1px solid $colorBorderLight;
+    padding: 6px 16px 9px 6px;
+    transition: all 0.4s ease 0s;
+
+    &:hover {
+      background-color: $colorBackgroundContainer;
+
+      .tabs-menu__btn-img {
+        background-color: $colorBackgroundBody;
+      }
+
+      .tabs-menu__btn-text {
+        color: $colorTextLight;
+      }
+    }
+
+    &.menu-button-active {
+      background-color: $colorBackgroundContainer;
+      pointer-events: none;
+
+      .tabs-menu__btn-img {
+        background-color: $colorBackgroundBody;
+      }
+
+      .tabs-menu__btn-text {
+        color: $colorTextLight;
+      }
+    }
+  }
+
+  // .tabs-menu__btn-img
+
+  &__btn-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    background-color: $colorBorderLight;
+    width: 30px;
+    height: 30px;
+    transition: background-color 0.4s ease 0s;
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+  }
+
+  // .tabs-menu__btn-text
+
+  &__btn-text {
+    font-weight: $fontWeight;
+    line-height: $fontLineHeight;
+    transition: color 0.3s ease 0s;
+  }
+}
