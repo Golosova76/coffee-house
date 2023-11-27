@@ -38,6 +38,12 @@ html {
   @include media-query-max-width(medium) {
     max-width: 768px; // сначала контейнер был 688 как на макете, стал 768 изза padding 40px
   }
+
+  @include media-query-max-width(xSmall) {
+    max-width: 380px; // сначала контейнер был 348 как на макете, стал 380 изза padding 16px
+    margin: 0 auto;
+    padding: 0 16px;
+  }
 }
 
 [class*="-ibg"] {

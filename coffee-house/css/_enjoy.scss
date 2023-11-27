@@ -23,6 +23,10 @@
       width: 100%;
       padding-left: 60px;
     }
+
+    @include media-query-max-width(small) {
+      padding: 60px 5px 60px 16px;
+    }
   }
 
   // .enjoy__title
@@ -37,6 +41,18 @@
     }
 
     @include margin-bottom40;
+
+    @media (max-width: 670px) {
+      font-size: clamp(2.625rem, 1.315rem + 5.52vw, 3.625rem);
+    }
+
+    @include media-query-max-width(xSmall) {
+      @include heading-mobile;
+    }
+
+    @media (max-width: 360px) {
+      font-size: clamp(2.25rem, 0.25rem + 10vw, 2.625rem);
+    }
   }
 
   // .enjoy__text
@@ -45,6 +61,11 @@
     @include body-medium;
     color: $colorTextLight;
     @include margin-bottom40;
+
+    @include media-query-max-width(xSmall) {
+      max-width: 316px;
+      width: 100%;
+    }
   }
 
   // .enjoy__menu

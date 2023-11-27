@@ -49,6 +49,10 @@
 
   &__navigation {
     @include margin-bottom40;
+
+    @include media-query-max-width(mobileSmall) {
+      display: none;
+    }
   }
 
   // .slider__button-prev
@@ -92,11 +96,13 @@
       stroke: $colorTextDark;
     }
 
-    &:hover {
-      background-color: $colorBackgroundContainer;
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: $colorBackgroundContainer;
 
-      svg {
-        stroke: $colorTextLight;
+        svg {
+          stroke: $colorTextLight;
+        }
       }
     }
   }
