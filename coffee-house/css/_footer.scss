@@ -22,6 +22,11 @@
       align-items: flex-start;
       padding: 100px 60px;
     }
+
+    @include media-query-max-width(small) {
+      gap: 40px;
+      padding: 60px 16px;
+    }
   }
 
   // .footer__content
@@ -40,6 +45,14 @@
     span {
       font-style: italic;
       color: $colorTextAccent;
+    }
+
+    @include media-query-max-width(small) {
+      font-size: clamp(2rem, -2.847rem + 20.41vw, 4.5rem);
+    }
+
+    @include media-query-max-width(xSmall) {
+      @include heading-mobile-two;
     }
   }
 
@@ -116,6 +129,10 @@
 
     @include media-query-max-width(medium) {
       gap: 19px;
+    }
+
+    @include media-query-max-width(small) {
+      gap: 17px;
     }
   }
 
