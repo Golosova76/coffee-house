@@ -535,13 +535,28 @@ html {
 .about__images {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-gap: 40px;
+  gap: 40px;
+}
+@media (max-width: 1200px) {
+  .about__images {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
 }
 
 .image-about__line {
   display: grid;
   grid-template-rows: auto auto;
-  grid-gap: 40px;
+  gap: 40px;
+}
+@media (max-width: 1200px) {
+  .image-about__line {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
 }
 .image-about__img {
   overflow: hidden;
@@ -569,6 +584,12 @@ html {
             transform: scale(0.91);
   }
 }
+@media (max-width: 1200px) {
+  .image-about__img {
+    max-width: 688px;
+    width: 100%;
+  }
+}
 .image-about__img_one {
   grid-row: span 2;
   max-height: 590px;
@@ -577,9 +598,19 @@ html {
   grid-row: span 1;
   max-height: 430px;
 }
+@media (max-width: 768px) {
+  .image-about__img_two {
+    display: none;
+  }
+}
 .image-about__img_three {
   grid-row: span 1;
   max-height: 430px;
+}
+@media (max-width: 768px) {
+  .image-about__img_three {
+    display: none;
+  }
 }
 .image-about__img_four {
   grid-row: span 2;
@@ -601,6 +632,14 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+@media (max-width: 1200px) {
+  .mobile__body {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 .mobile__content {
   -webkit-box-flex: 0;
@@ -684,6 +723,24 @@ html {
       -ms-flex: 0 1 50%;
           flex: 0 1 50%;
   padding-bottom: 46.33%;
+}
+@media (max-width: 1200px) {
+  .mobile__image-ibg {
+    width: 56.3%;
+    padding-bottom: 56.3%;
+  }
+}
+@media (max-width: 991.98px) {
+  .mobile__image-ibg {
+    width: 69.2%;
+    padding-bottom: 69.2%;
+  }
+}
+@media (max-width: 768px) {
+  .mobile__image-ibg {
+    width: 91.6%;
+    padding-bottom: 91.6%;
+  }
 }
 
 .footer__container {
