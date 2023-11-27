@@ -33,6 +33,14 @@
       font-style: italic;
       color: $colorTextAccent;
     }
+
+    @media (max-width: 760px) {
+      font-size: clamp(2rem, -0.5rem + 10.53vw, 4.5rem);
+    }
+
+    @include media-query-max-width(xSmall) {
+      @include heading-mobile-two;
+    }
   }
 
   // .about__images

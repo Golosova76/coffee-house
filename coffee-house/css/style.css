@@ -443,8 +443,22 @@ html {
 .favorite__title:not(:last-child) {
   margin-bottom: 40px;
 }
+@media (max-width: 575.98px) {
+  .favorite__title {
+    font-size: clamp(2rem, -2.847rem + 20.41vw, 4.5rem);
+  }
+}
+@media (max-width: 380px) {
+  .favorite__title {
+    font-size: 32px;
+    line-height: 125%;
+  }
+}
 .slider {
   position: relative;
+}
+.slider__wrapper:not(:last-child) {
+  margin-bottom: 40px;
 }
 .slider__item {
   max-width: 480px;
@@ -572,6 +586,17 @@ html {
 .about__text span {
   font-style: italic;
   color: #B0907A;
+}
+@media (max-width: 760px) {
+  .about__text {
+    font-size: clamp(2rem, -0.5rem + 10.53vw, 4.5rem);
+  }
+}
+@media (max-width: 380px) {
+  .about__text {
+    font-size: 32px;
+    line-height: 125%;
+  }
 }
 .about__images {
   display: grid;

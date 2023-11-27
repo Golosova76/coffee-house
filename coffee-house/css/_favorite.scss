@@ -19,6 +19,14 @@
     }
 
     @include margin-bottom40;
+
+    @include media-query-max-width(small) {
+      font-size: clamp(2rem, -2.847rem + 20.41vw, 4.5rem);
+    }
+
+    @include media-query-max-width(xSmall) {
+      @include heading-mobile-two;
+    }
   }
 
   // .favorite__slider
@@ -31,7 +39,11 @@
 
   // .slider__wrapper
 
-  &__wrapper {}
+  &__wrapper {
+    &:not(:last-child) {
+      margin-bottom: 40px;
+    }
+  }
 
   // .slider__items
 
