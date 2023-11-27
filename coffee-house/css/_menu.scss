@@ -208,7 +208,6 @@
     background-image: url(../img/header/coffee-cup.svg);
   }
 
-
   &::before {
     content: '';
     position: absolute;
@@ -219,5 +218,9 @@
     background-color: $colorTextDark;
     //transform: scaleX(0);
     //transition: transform 0.5s ease;
+  }
+
+  @include media-query-max-width(medium) {
+    display: none;
   }
 }

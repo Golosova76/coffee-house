@@ -16,6 +16,12 @@
     z-index: 1;
     max-width: 630px;
     padding: 100px 0 100px 100px;
+
+    @include media-query-max-width(medium) {
+      max-width: 590px;
+      width: 100%;
+      padding-left: 60px;
+    }
   }
 
   // .enjoy__title
@@ -76,6 +82,11 @@
     transition: all 0.3s ease 0s;
     position: relative;
 
+    @include media-query-max-width(medium) {
+      gap: 17px;
+      padding: 20px 65px 20px 55px;
+    }
+
     span {
       transition: transform 0.5s ease 0s;
       transform: translateX(22%);
@@ -84,6 +95,13 @@
     svg {
       transition: opacity 0.5s ease 0s;
       opacity: 0;
+    }
+
+    @include media-query-max-width(medium) {
+      svg {
+        opacity: 1;
+        transform: translateX(0%);
+      }
     }
   }
 
