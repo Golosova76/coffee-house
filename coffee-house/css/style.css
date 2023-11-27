@@ -274,11 +274,8 @@ html {
   }
 }
 
-.enjoy__container {
+.enjoy__body {
   position: relative;
-  max-width: 1360px;
-  margin: 0 auto;
-  padding: 0;
 }
 .enjoy__content {
   position: relative;
