@@ -4,6 +4,9 @@
 
   &__container {
     padding-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   // .menu__text
@@ -23,7 +26,28 @@
 
   // .menu__tabs
 
-  &__tabs {}
+  &__tabs {
+    @include margin-bottom40;
+  }
+
+  // .menu__load
+
+  &__load {
+    display: none;
+
+    @include media-query-max-width(medium) {
+      display: block;
+    }
+  }
+
+  // .menu__loader
+
+  &__loader {
+    border-radius: 100px;
+    border: 1px solid $colorBorderDark;
+    width: 60px;
+    height: 60px;
+  }
 }
 
 .tabs-menu {
@@ -48,6 +72,7 @@
     border-radius: 100px;
     border: 1px solid $colorBorderLight;
     padding: 6px 16px 9px 6px;
+    user-select: none;
     transition: all 0.4s ease 0s;
 
     &:hover {
@@ -110,11 +135,25 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 40px;
+
+    @media (max-width: 1350px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: 1100px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   // .tabs-menu__item
 
-  &__item {}
+  &__item {
+    @include media-query-max-width(medium) {
+      &.conceal {
+        display: none;
+      }
+    }
+  }
 
   // .tabs-menu__card
 
@@ -154,6 +193,7 @@
     width: 100%;
 
     img {
+      width: 100%;
       transition: all 0.5s ease 0s;
       border-radius: 40px;
     }
@@ -196,6 +236,7 @@
 .header__icon-menu {
   position: relative;
   pointer-events: none;
+  user-select: none;
   padding-right: 28px;
 
   &::after {
@@ -224,3 +265,5 @@
     display: none;
   }
 }
+
+.button-loader {}
