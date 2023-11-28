@@ -481,9 +481,13 @@ html {
   border: 1px solid #665F55;
   width: 60px;
   height: 60px;
+  -webkit-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
 }
 .slider__button-prev svg {
   stroke: #403F3D;
+  -webkit-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
 }
 @media (any-hover: hover) {
   .slider__button-prev:hover {
@@ -501,9 +505,13 @@ html {
   border: 1px solid #665F55;
   width: 60px;
   height: 60px;
+  -webkit-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
 }
 .slider__button-next svg {
   stroke: #403F3D;
+  -webkit-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
 }
 @media (any-hover: hover) {
   .slider__button-next:hover {
