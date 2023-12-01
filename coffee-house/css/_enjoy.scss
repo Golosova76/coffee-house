@@ -103,6 +103,7 @@
     text-align: center;
     transition: all 0.3s ease 0s;
     position: relative;
+    user-select: none;
 
     @include media-query-max-width(medium) {
       gap: 17px;

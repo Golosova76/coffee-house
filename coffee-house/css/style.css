@@ -387,6 +387,10 @@ html {
   -webkit-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
   position: relative;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 @media (max-width: 768px) {
   .enjoy__link {
@@ -1017,7 +1021,7 @@ html {
 }
 
 .menu__container {
-  padding-bottom: 100px;
+  padding-bottom: 60px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1028,6 +1032,11 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+@media (max-width: 768px) {
+  .menu__container {
+    padding-bottom: 100px;
+  }
 }
 .menu__text {
   max-width: 800px;
@@ -1124,14 +1133,16 @@ html {
   -webkit-transition: all 0.4s ease 0s;
   transition: all 0.4s ease 0s;
 }
-.tabs-menu__button:hover {
-  background-color: #665F55;
-}
-.tabs-menu__button:hover .tabs-menu__btn-img {
-  background-color: #E1D4C9;
-}
-.tabs-menu__button:hover .tabs-menu__btn-text {
-  color: #E1D4C9;
+@media (any-hover: hover) {
+  .tabs-menu__button:hover {
+    background-color: #665F55;
+  }
+  .tabs-menu__button:hover .tabs-menu__btn-img {
+    background-color: #E1D4C9;
+  }
+  .tabs-menu__button:hover .tabs-menu__btn-text {
+    color: #E1D4C9;
+  }
 }
 .tabs-menu__button.menu-button-active {
   background-color: #665F55;
