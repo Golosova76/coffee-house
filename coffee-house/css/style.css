@@ -1080,6 +1080,14 @@ html {
   width: 60px;
   height: 60px;
 }
+.menu__loader:hover {
+  background-color: #665F55;
+}
+@media (any-hover: hover) {
+  .menu__loader:hover {
+    background-color: #665F55;
+  }
+}
 
 .tabs-menu__nav {
   display: -webkit-box;
