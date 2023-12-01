@@ -52,6 +52,10 @@
         transform: scaleX(1);
       }
     }
+
+    @include media-query-max-width(medium) {
+      display: none;
+    }
   }
 }
 
@@ -60,6 +64,10 @@
   // .menu__body
 
   &__body {
+    @include media-query-max-width(medium) {
+      display: none;
+    }
+
     line-height: $fontLineHeight;
   }
 
@@ -71,6 +79,10 @@
     gap: 40px;
     align-items: center;
     text-align: center;
+
+    @include media-query-max-width(large) {
+      gap: 25px;
+    }
   }
 
   // .menu__item
@@ -102,4 +114,18 @@
   }
 }
 
-.icon-menu {}
+.icon-menu {
+  display: none;
+
+  @include media-query-max-width(medium) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    width: 44px;
+    height: 44px;
+    border-radius: 100px;
+    border: 1px solid var(--border-dark, #665F55);
+  }
+}
