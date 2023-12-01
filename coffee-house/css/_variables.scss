@@ -62,3 +62,41 @@ $mainBackgroundColor: $colorBackgroundBody;
     margin-bottom: 40px;
   }
 }
+
+$breakpoints: (
+  xSmall: 380px,
+  mobileSmall: 479.98px,
+  small: 575.98px,
+  medium: 768px,
+  large: 991.98px,
+  extraLarge: 1200px,
+);
+
+@mixin media-query-max-width($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    $max-width: map-get($breakpoints, $breakpoint);
+
+    @media (max-width: $max-width) {
+      @content;
+    }
+  }
+
+  @else {
+    @error "Undefined breakpoint #{$breakpoint}. Please define it in $breakpoints.";
+  }
+}
+
+
+@mixin media-query-min-width($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    $min-width: map-get($breakpoints, $breakpoint);
+
+    @media (min-width: $min-width) {
+      @content;
+    }
+  }
+
+  @else {
+    @error "Undefined breakpoint #{$breakpoint}. Please define it in $breakpoints.";
+  }
+}
