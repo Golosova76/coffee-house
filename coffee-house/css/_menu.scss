@@ -278,6 +278,8 @@
   pointer-events: none;
   user-select: none;
   padding-right: 28px;
+  margin-left: auto;
+  //z-index: 5;
 
   &::after {
     content: '';
@@ -302,7 +304,17 @@
   }
 
   @include media-query-max-width(medium) {
-    display: none;
+    padding-right: 56px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: -3px;
+      right: px;
+      width: 40px;
+      height: 40px;
+      background-image: url(../img/header/coffee-cup40.svg);
+    }
   }
 }
 
