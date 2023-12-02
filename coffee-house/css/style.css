@@ -116,6 +116,12 @@ html {
   min-width: 0;
 }
 
+@media (max-width: 768px) {
+  body.lock {
+    overflow: hidden;
+  }
+}
+
 [class*=__container] {
   max-width: 1440px;
   margin: 0 auto;
@@ -230,23 +236,22 @@ html {
   .menu-header {
     display: block;
     padding: 60px 40px 384px 40px;
-    background-color: red;
     position: fixed;
     z-index: 5;
     top: 100px;
-    right: 0;
+    right: -100%;
     width: 100%;
     height: 100%;
     text-align: center;
     font-size: 32px;
     line-height: 125%;
-    -webkit-transition: all 0.5s ease 0s;
-    transition: all 0.5s ease 0s;
+    background-color: #E1D4C9;
+    -webkit-transition: all 0.8s ease 0s;
+    transition: all 0.8s ease 0s;
+    overflow: auto;
   }
   .menu-header.menu-active {
-    -webkit-transform: translate(0, 0);
-        -ms-transform: translate(0, 0);
-            transform: translate(0, 0);
+    right: 0;
   }
 }
 .menu-header__body {

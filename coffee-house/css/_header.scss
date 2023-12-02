@@ -85,24 +85,21 @@
   @include media-query-max-width(medium) {
     display: block;
     padding: 60px 40px 384px 40px;
-    background-color: red;
+    //background-color: red;
     position: fixed;
     z-index: 5;
     top: 100px;
-    right: 0;
-    //right: -100%;
+    right: -100%;
     width: 100%;
     height: 100%;
     text-align: center;
     @include burger-link;
-    //background-color: $colorBackgroundBody;  //значение по макету
-    transition: all 0.5s ease 0s;
-    //overflow: auto;
-    //transform: translate(100%, 0);
+    background-color: $colorBackgroundBody; //значение по макету
+    transition: all 0.8s ease 0s;
+    overflow: auto;
 
     &.menu-active {
-      //right: 0;
-      transform: translate(0, 0);
+      right: 0;
     }
   }
 

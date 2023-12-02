@@ -30,6 +30,14 @@ html {
   }
 }
 
+body {
+  @include media-query-max-width(medium) {
+    &.lock {
+      overflow: hidden;
+    }
+  }
+}
+
 [class*="__container"] {
   max-width: 1440px; // сначала контейнер был 1360 как на макете, стал 1440 изза padding 40px
   margin: 0 auto;
