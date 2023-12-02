@@ -195,6 +195,19 @@
       height: 2px;
       background-color: $colorTextDark;
       border-radius: 2px;
+      transition: all 0.8s ease 0s;
+    }
+
+    &.menu-active {
+      gap: 0;
+
+      .icon-menu__top {
+        transform: rotate(-45deg) translate(0px, 60%);
+      }
+
+      .icon-menu__bottom {
+        transform: rotate(45deg) translate(0px, -80%);
+      }
     }
   }
 }

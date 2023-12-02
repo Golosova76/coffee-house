@@ -353,6 +353,21 @@ html {
     height: 2px;
     background-color: #403F3D;
     border-radius: 2px;
+    -webkit-transition: all 0.8s ease 0s;
+    transition: all 0.8s ease 0s;
+  }
+  .icon-menu.menu-active {
+    gap: 0;
+  }
+  .icon-menu.menu-active .icon-menu__top {
+    -webkit-transform: rotate(-45deg) translate(0px, 60%);
+        -ms-transform: rotate(-45deg) translate(0px, 60%);
+            transform: rotate(-45deg) translate(0px, 60%);
+  }
+  .icon-menu.menu-active .icon-menu__bottom {
+    -webkit-transform: rotate(45deg) translate(0px, -80%);
+        -ms-transform: rotate(45deg) translate(0px, -80%);
+            transform: rotate(45deg) translate(0px, -80%);
   }
 }
 
