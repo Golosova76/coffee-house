@@ -40,6 +40,10 @@
   // .slider__wrapper
 
   &__wrapper {
+    max-width: 480px;
+    margin: 0 auto;
+    overflow: hidden;
+
     &:not(:last-child) {
       margin-bottom: 40px;
     }
@@ -47,13 +51,20 @@
 
   // .slider__items
 
-  &__items {}
+  &__items {
+    display: flex;
+    transition: transform 0.8s ease-out;
+    //max-width: 488px;
+    //margin: 0 auto;
+    //width: 100%;
+    //overflow: hidden;
+  }
 
   // .slider__item
 
   &__item {
-    max-width: 480px;
-    margin: 0 auto;
+    max-width: 488px;
+    flex: 0 0 100%;
     text-align: center;
   }
 
