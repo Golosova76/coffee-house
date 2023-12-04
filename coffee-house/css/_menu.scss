@@ -60,10 +60,6 @@
     width: 60px;
     height: 60px;
 
-    &:hover {
-      background-color: $colorBackgroundContainer;
-    }
-
     @media (any-hover: hover) {
       &:hover {
         background-color: $colorBackgroundContainer;
