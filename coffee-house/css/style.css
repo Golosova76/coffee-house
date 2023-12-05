@@ -646,17 +646,12 @@ html {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  max-width: 144px;
-  width: 100%;
-  text-align: center;
 }
 .slider__line {
   border-radius: 100px;
   width: 40px;
   height: 4px;
   background-color: #C1B6AD;
-  -webkit-transition: width 5s linear, background-color 0.1s linear;
-  transition: width 5s linear, background-color 0.1s linear;
 }
 .content__image-ibg {
   padding-bottom: 100%;

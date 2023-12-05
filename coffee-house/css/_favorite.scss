@@ -140,9 +140,6 @@
     display: flex;
     column-gap: 12px;
     justify-content: center;
-    max-width: 144px;
-    width: 100%;
-    text-align: center;
   }
 
   // .slider__line
@@ -152,7 +149,7 @@
     width: 40px;
     height: 4px;
     background-color: $colorBorderLight;
-    transition: width 5s linear, background-color 0.1s linear;
+    //transition: background-color 0.3s linear;
 
     // .slider__line_one
 
