@@ -89,8 +89,57 @@ document.addEventListener("DOMContentLoaded", function() {
 
   nextButton.addEventListener('click', moveNext);
   prevButton.addEventListener('click', movePrev);
+
+  /*
+
+  wrapper.addEventListener('mouseover', () => {
+    resetProgressBar();
+    resetAutoSlider();
+  });
+  wrapper.addEventListener('mouseout', () => {
+    startProgressBar();
+    startAutoSlider();
+  });
+
+  wrapper.addEventListener('mousedown', () => {
+    resetProgressBar();
+    resetAutoSlider();
+  });
+  wrapper.addEventListener('mouseup', () => {
+    startProgressBar();
+    startAutoSlider();
+  });
+  */
+
+  //свайп вправо/влево касанием 
+  let touchStartX = 0;
+  let touchEndX = 0;
   
+  wrapper.addEventListener("touchstart", function (event) {
+    touchStartX = event.touches[0].clientX;
+  });
+
+  wrapper.addEventListener("touchmove", function (event) {
+    touchEndX = event.touches[0].clientX;
+  });
+
+  wrapper.addEventListener("touchend", function () {
+    makeSwipe();
+  });
+
+  function makeSwipe() {
+    const swipeMin = 50; // Минимальное расстояние для считывания свайпа    
+    const swipeDistance = touchEndX - touchStartX;
+    if (swipeDistance > swipeMin) {
+      movePrev();
+    } else if (swipeDistance < -swipeMin) {
+      moveNext();
+    }
+  }
+
   startAutoSlider();
+
+  
 
 
   //DON'T TOUCH!!!!!
