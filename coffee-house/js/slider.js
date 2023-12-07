@@ -12,6 +12,11 @@ document.addEventListener("DOMContentLoaded", function() {
   let currentSlide = 0;
   let autoSliderInterval;
   let progressInterval;
+  let progressAnimationFrame;
+  let currentProgress;
+  let cursorHovered = false; // Добавленная переменная
+  let progressOnHover = 0; // Добавленная переменная
+
     
   function getSlideOffset(index) {
     return -(index * slideWidth);
@@ -69,18 +74,24 @@ document.addEventListener("DOMContentLoaded", function() {
 
       progress += (elapsedTime / (sliderInterval / progressIntervalStep));
 
-      progressBar[currentSlide].style.background = `linear-gradient(to right, #665F55 ${Math.min(progress, 100)}%, #C1B6AD ${Math.min(progress, 100)}%)`;
+      progressBar[currentSlide].style.background = `linear-gradient(to right, 
+        #665F55 ${Math.min(progress, 100)}%,
+        #C1B6AD ${Math.min(progress, 100)}%)`;
 
       if (progress < 100) {
           startTime = currentTime;
-          requestAnimationFrame(animate);
+          progressAnimationFrame = requestAnimationFrame(animate);
       } else {
           resetProgressBar();
+          if (!cursorHovered) {
+            currentProgress = 0; // Сбросить текущий 
+            //прогресс только если курсор не был наведен
+          }
       }
     }
 
     startTime = Date.now();
-    requestAnimationFrame(animate);
+    progressAnimationFrame = requestAnimationFrame(animate);
   }
 
   function resetProgressBar(slideIndex) {
@@ -89,27 +100,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
   nextButton.addEventListener('click', moveNext);
   prevButton.addEventListener('click', movePrev);
-
-  /*
-
-  wrapper.addEventListener('mouseover', () => {
-    resetProgressBar();
-    resetAutoSlider();
-  });
-  wrapper.addEventListener('mouseout', () => {
-    startProgressBar();
-    startAutoSlider();
-  });
-
-  wrapper.addEventListener('mousedown', () => {
-    resetProgressBar();
-    resetAutoSlider();
-  });
-  wrapper.addEventListener('mouseup', () => {
-    startProgressBar();
-    startAutoSlider();
-  });
-  */
 
   //свайп вправо/влево касанием 
   let touchStartX = 0;
@@ -137,11 +127,35 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 
+ //остановка при наведении
+
+  wrapper.addEventListener('mouseenter', function() {
+  stopCarousel();
+  cursorHovered = true;
+  currentProgress = progressOnHover;
+});
+
+wrapper.addEventListener('mouseleave', function() {
   startAutoSlider();
+  cursorHovered = false;
+  currentProgress = progressOnHover;
+});
 
+  function stopCarousel() {
+    clearInterval(autoSliderInterval);
+    if (!cursorHovered) {
+    cancelAnimationFrame(progressAnimationFrame);
+  }
+  }
+
+  function startCarousel() {
+    startAutoSlider();
+  }
+
+
+  //DON'T TOUCH!!!!!
+  startAutoSlider();  
   
-
-
   //DON'T TOUCH!!!!!
 });
 
