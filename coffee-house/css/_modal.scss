@@ -1,7 +1,25 @@
 .modal {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 50;
   background-color: $colorBackgroundBackdrop;
-  opacity: 0.8;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.8s ease 0s;
 
+
+  &.popup-open {
+    opacity: 1;
+    visibility: visible;
+
+    .modal-menu__content {
+      opacity: 1;
+      transform: perspective(600px) translate(0px, 0px) rotateX(0deg);
+    }
+  }
 }
 
 .modal-menu {
@@ -14,6 +32,10 @@
     justify-content: center;
     min-height: 100%;
     transition: all 0.8s ease 0s;
+
+    @media (max-width: 720px) {
+      padding: 10px;
+    }
   }
 
   // .modal-menu__content
@@ -25,6 +47,21 @@
     border-radius: 40px;
     background-color: $colorBackgroundBody;
     padding: 16px;
+    opacity: 0;
+    transform: perspective(600px) translate(0px, -100%) rotateX(45deg);
+    transition: all 0.8s ease 0s;
+
+    @include media-query-max-width(medium) {
+      max-width: 688px;
+    }
+
+    @media (max-width: 720px) {
+      justify-content: center;
+    }
+
+    @include media-query-max-width(xSmall) {
+      max-width: 340px;
+    }
   }
 
   // .modal-menu__left
@@ -32,6 +69,10 @@
   &__left {
     max-width: 310px;
     width: 100%;
+
+    @media (max-width: 720px) {
+      display: none;
+    }
   }
 
   // .modal-menu__image-ibg
@@ -53,6 +94,18 @@
     max-width: 458px;
     width: 100%;
     padding-left: 20px;
+
+    @include media-query-max-width(medium) {
+      max-width: 346px;
+    }
+
+    @media (max-width: 720px) {
+      padding-left: 0;
+    }
+
+    @include media-query-max-width(xSmall) {
+      max-width: 310px;
+    }
   }
 
   // .modal-menu__title
@@ -96,6 +149,10 @@
     gap: 8px;
     border-top: 1px solid $colorBorderLight;
 
+    @include media-query-max-width(medium) {
+      min-height: 66px;
+    }
+
     svg {
       align-self: flex-start;
       flex-shrink: 0;
@@ -132,6 +189,7 @@
 
   &__buttons {
     display: flex;
+    flex-wrap: wrap;
     gap: 8px;
   }
 
@@ -192,6 +250,7 @@
 
   &__buttons {
     display: flex;
+    flex-wrap: wrap;
     gap: 8px;
   }
 

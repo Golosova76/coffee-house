@@ -1,3 +1,9 @@
+body {
+  &.lock-menu {
+    overflow: hidden;
+  }
+}
+
 .menu {
 
   // .menu__container
@@ -202,7 +208,7 @@
     width: 100%;
     min-height: 506px;
     cursor: pointer;
-
+    /*
     @media (any-hover: hover) {
       &:hover {
         .tabs-menu__image {
@@ -213,25 +219,31 @@
         }
       }
     }
+    */
   }
 
   // .tabs-menu__image
 
   &__image {
-    position: relative;
+    //position: relative;
     overflow: hidden;
     border-radius: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 310px;
+    max-width: 340px;
     max-height: 310px;
     width: 100%;
 
     img {
-      width: 100%;
       transition: all 0.5s ease 0s;
       border-radius: 40px;
+
+      @media (any-hover: hover) {
+        &:hover {
+          transform: scale(0.92);
+        }
+      }
     }
   }
 

@@ -1128,6 +1128,10 @@ html {
   line-height: 150%;
 }
 
+body.lock-menu {
+  overflow: hidden;
+}
+
 .menu__container {
   padding-bottom: 60px;
   display: -webkit-box;
@@ -1334,18 +1338,20 @@ html {
   width: 100%;
   min-height: 506px;
   cursor: pointer;
-}
-@media (any-hover: hover) {
-  .tabs-menu__card:hover .tabs-menu__image img {
-    -webkit-transition: all 0.5s ease 0s;
-    transition: all 0.5s ease 0s;
-    -webkit-transform: scale(0.92);
-        -ms-transform: scale(0.92);
-            transform: scale(0.92);
+  /*
+  @media (any-hover: hover) {
+    &:hover {
+      .tabs-menu__image {
+        img {
+          transition: all 0.5s ease 0s;
+          transform: scale(0.92);
+        }
+      }
+    }
   }
+  */
 }
 .tabs-menu__image {
-  position: relative;
   overflow: hidden;
   border-radius: 40px;
   display: -webkit-box;
@@ -1357,15 +1363,21 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  max-width: 310px;
+  max-width: 340px;
   max-height: 310px;
   width: 100%;
 }
 .tabs-menu__image img {
-  width: 100%;
   -webkit-transition: all 0.5s ease 0s;
   transition: all 0.5s ease 0s;
   border-radius: 40px;
+}
+@media (any-hover: hover) {
+  .tabs-menu__image img:hover {
+    -webkit-transform: scale(0.92);
+        -ms-transform: scale(0.92);
+            transform: scale(0.92);
+  }
 }
 .tabs-menu__content {
   display: -webkit-box;
@@ -1443,8 +1455,26 @@ html {
 }
 
 .modal {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 50;
   background-color: rgba(64, 63, 61, 0.8);
-  opacity: 0.8;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.8s ease 0s;
+  transition: all 0.8s ease 0s;
+}
+.modal.popup-open {
+  opacity: 1;
+  visibility: visible;
+}
+.modal.popup-open .modal-menu__content {
+  opacity: 1;
+  -webkit-transform: perspective(600px) translate(0px, 0px) rotateX(0deg);
+          transform: perspective(600px) translate(0px, 0px) rotateX(0deg);
 }
 
 .modal-menu__body {
@@ -1461,6 +1491,11 @@ html {
   -webkit-transition: all 0.8s ease 0s;
   transition: all 0.8s ease 0s;
 }
+@media (max-width: 720px) {
+  .modal-menu__body {
+    padding: 10px;
+  }
+}
 .modal-menu__content {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1470,10 +1505,37 @@ html {
   border-radius: 40px;
   background-color: #E1D4C9;
   padding: 16px;
+  opacity: 0;
+  -webkit-transform: perspective(600px) translate(0px, -100%) rotateX(45deg);
+          transform: perspective(600px) translate(0px, -100%) rotateX(45deg);
+  -webkit-transition: all 0.8s ease 0s;
+  transition: all 0.8s ease 0s;
+}
+@media (max-width: 768px) {
+  .modal-menu__content {
+    max-width: 688px;
+  }
+}
+@media (max-width: 720px) {
+  .modal-menu__content {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+@media (max-width: 380px) {
+  .modal-menu__content {
+    max-width: 340px;
+  }
 }
 .modal-menu__left {
   max-width: 310px;
   width: 100%;
+}
+@media (max-width: 720px) {
+  .modal-menu__left {
+    display: none;
+  }
 }
 .modal-menu__image-ibg {
   padding-bottom: 100%;
@@ -1493,6 +1555,21 @@ html {
   max-width: 458px;
   width: 100%;
   padding-left: 20px;
+}
+@media (max-width: 768px) {
+  .modal-menu__right {
+    max-width: 346px;
+  }
+}
+@media (max-width: 720px) {
+  .modal-menu__right {
+    padding-left: 0;
+  }
+}
+@media (max-width: 380px) {
+  .modal-menu__right {
+    max-width: 310px;
+  }
 }
 .modal-menu__title {
   font-size: 24px;
@@ -1526,6 +1603,11 @@ html {
   gap: 8px;
   border-top: 1px solid #C1B6AD;
 }
+@media (max-width: 768px) {
+  .modal-menu__info {
+    min-height: 66px;
+  }
+}
 .modal-menu__info svg {
   -ms-flex-item-align: start;
       align-self: flex-start;
@@ -1554,6 +1636,8 @@ html {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   gap: 8px;
 }
 .menu-size__button {
@@ -1600,6 +1684,8 @@ html {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   gap: 8px;
 }
 .menu-additives__button {
