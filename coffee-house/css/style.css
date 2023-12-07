@@ -1441,3 +1441,201 @@ html {
     background-image: url(../img/header/coffee-cup40.svg);
   }
 }
+
+.modal {
+  background-color: rgba(64, 63, 61, 0.8);
+  opacity: 0.8;
+}
+
+.modal-menu__body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-height: 100%;
+  -webkit-transition: all 0.8s ease 0s;
+  transition: all 0.8s ease 0s;
+}
+.modal-menu__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 800px;
+  width: 100%;
+  border-radius: 40px;
+  background-color: #E1D4C9;
+  padding: 16px;
+}
+.modal-menu__left {
+  max-width: 310px;
+  width: 100%;
+}
+.modal-menu__image-ibg {
+  padding-bottom: 100%;
+}
+.modal-menu__image-ibg img {
+  border-radius: 40px;
+}
+.modal-menu__right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 20px;
+  max-width: 458px;
+  width: 100%;
+  padding-left: 20px;
+}
+.modal-menu__title {
+  font-size: 24px;
+  line-height: 125%;
+}
+.modal-menu__title:not(:last-child) {
+  margin-bottom: 12px;
+}
+.modal-menu__text {
+  font-weight: 400;
+  line-height: 150%;
+}
+.modal-menu__total {
+  font-size: 24px;
+  line-height: 125%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.modal-menu__info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 52px;
+  gap: 8px;
+  border-top: 1px solid #C1B6AD;
+}
+.modal-menu__info svg {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  margin-top: 12px;
+}
+.modal-menu__button {
+  border-radius: 100px;
+  border: 1px solid #665F55;
+  font-weight: 600;
+  line-height: 150%;
+  padding: 10px 78px;
+}
+
+.menu-size__subtitle {
+  font-weight: 400;
+  line-height: 150%;
+}
+.menu-size__subtitle:not(:last-child) {
+  margin-bottom: 8px;
+}
+.menu-size__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 8px;
+}
+.menu-size__button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 7px 16px 7px 7px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 8px;
+  border-radius: 100px;
+  border: 1px solid #C1B6AD;
+  font-weight: 600;
+}
+.menu-size__button.size-active {
+  background-color: #665F55;
+  color: #E1D4C9;
+}
+.menu-size__button.size-active .menu-size__name {
+  background-color: #E1D4C9;
+  color: #403F3D;
+}
+.menu-size__name {
+  width: 30px;
+  height: 30px;
+  border-radius: 100px;
+  background-color: #C1B6AD;
+  padding: 3px 7px 3px 8px;
+  line-height: 150%;
+}
+
+.menu-additives__subtitle {
+  font-weight: 400;
+  line-height: 150%;
+}
+.menu-additives__subtitle:not(:last-child) {
+  margin-bottom: 8px;
+}
+.menu-additives__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 8px;
+}
+.menu-additives__button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 7px 16px 7px 7px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 8px;
+  border-radius: 100px;
+  border: 1px solid #C1B6AD;
+  font-weight: 600;
+}
+.menu-additives__button.additives-active {
+  background-color: #665F55;
+  color: #E1D4C9;
+}
+.menu-additives__button.additives-active .menu-additives__index {
+  background-color: #E1D4C9;
+  color: #403F3D;
+}
+.menu-additives__index {
+  width: 30px;
+  height: 30px;
+  border-radius: 100px;
+  background-color: #C1B6AD;
+  padding: 3px 7px 3px 8px;
+  line-height: 150%;
+}
+
+.menu-info__text {
+  font-size: 10px;
+  line-height: 140%;
+}
