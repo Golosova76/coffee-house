@@ -7,26 +7,6 @@ document.addEventListener("DOMContentLoaded", function() {
   //const productsData = products; //массив объектов для работы
   //console.log(products);
 
-  /*
-  function generateCard(product) {
-    const cardTemplate = `
-      <li class="tabs-menu__item">
-        <article class="tabs-menu__card">
-          <h2 class="visually-hidden">Product Card</h2>
-          <div class="tabs-menu__image">
-            <img src="${product.image}" "alt="${product.name}">
-          </div>
-          <div class="tabs-menu__content">
-            <div class="tabs-menu__title">${product.name}</div>
-            <div class="tabs-menu__text">${product.description}</div>
-            <div class="tabs-menu__price">$${product.price}</div>
-          </div>
-        </article>
-      </li>
-    `;
-    return cardTemplate;
-  }
-  */
   function createCardElement(product) {
     const li = document.createElement('li');
     li.classList.add('tabs-menu__item');
@@ -118,6 +98,9 @@ document.addEventListener("DOMContentLoaded", function() {
     filteredProducts.forEach(product => {
       const cardElement = createCardElement(product);
       productsContainer.appendChild(cardElement);
+      cardElement.addEventListener('click', () => {
+            openModal(product);
+        });
     });
   }
 
@@ -144,21 +127,33 @@ document.addEventListener("DOMContentLoaded", function() {
     } 
   }
   
-  function openModal() {
+  function openModal(product) {
+    const modalName = document.querySelector('.modal-menu__title');
+    const modalText = document.querySelector('.modal-menu__text');
+    const modalImage = document.querySelector('.modal-menu__image-ibg img')
+
+    modalName.textContent = product.name;
+    modalText.textContent = product.description;
+    modalImage.src = product.image;
+    
     modalMenu.classList.add('popup-open');
     if (modalMenu && unlock) {
       bodyLock();
     }
   }
 
+  /*
+
   if (openModalMenu.length > 0) {
     document.body.addEventListener('click', (event) => {
       const clickedCard = event.target.closest('.tabs-menu__card');
       if (clickedCard) {
-        openModal();
+        const productData = clickedCard.product;
+        openModal(productData);
       }
     });
   }
+  */
 
 
   function addCloseListener(modal, contentClass) {
