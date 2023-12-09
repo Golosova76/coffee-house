@@ -1,5 +1,6 @@
 .header {
 
+
   // .header__container
 
   &__container {
@@ -9,6 +10,7 @@
     min-height: 60px;
     padding-top: 20px;
     padding-bottom: 20px;
+
   }
 
   // .header__logo
@@ -17,13 +19,22 @@
 
   // .header__menu
 
-  &__menu {}
+  &__menu {
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: space-between;
+
+    @include media-query-max-width(medium) {}
+  }
 
   // .header__icon
 
   &__icon {
+    margin-left: auto;
     position: relative;
     padding-right: 28px;
+    z-index: 5;
+
 
     &::after {
       content: '';
@@ -54,42 +65,90 @@
     }
 
     @include media-query-max-width(medium) {
-      display: none;
+      margin: 0;
+      padding-right: 56px;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: -3px;
+        right: px;
+        width: 40px;
+        height: 40px;
+        background-image: url(../img/header/coffee-cup40.svg);
+      }
     }
   }
 }
 
-.menu {
+.menu-header {
+  @include media-query-max-width(medium) {
+    display: block;
+    padding: 60px 40px 384px 40px;
+    //background-color: red;
+    position: fixed;
+    z-index: 5;
+    top: 100px;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    @include burger-link;
+    background-color: $colorBackgroundBody; //значение по макету
+    transition: all 0.8s ease 0s;
+    overflow: auto;
 
-  // .menu__body
+    &.menu-active {
+      right: 0;
+    }
+  }
+
+  // .menu-header__body
 
   &__body {
+    margin-left: auto;
+
     @include media-query-max-width(medium) {
-      display: none;
+      margin: 0;
+
+      &:not(:last-child) {
+        margin-bottom: 100px;
+      }
     }
 
     line-height: $fontLineHeight;
   }
 
-  // .menu__list
+  // .menu-header__list
 
   &__list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-    align-items: center;
-    text-align: center;
+    @include media-query-max-width (medium) {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+    }
 
-    @include media-query-max-width(large) {
-      gap: 25px;
+    @include media-query-min-width(mediumTop) {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      align-items: center;
+      text-align: center;
+      margin-left: auto;
+      flex-grow: 1;
+
+      @include media-query-max-width(large) {
+        gap: 25px;
+      }
     }
   }
 
-  // .menu__item
+  // .menu-header__item
 
   &__item {}
 
-  // .menu__link
+  // .menu-header__link
 
   &__link {
     position: relative;
@@ -127,5 +186,25 @@
     height: 44px;
     border-radius: 100px;
     border: 1px solid var(--border-dark, #665F55);
+
+    span {
+      width: 16px;
+      height: 2px;
+      background-color: $colorTextDark;
+      border-radius: 2px;
+      transition: all 0.8s ease 0s;
+    }
+
+    &.menu-active {
+      gap: 0;
+
+      .icon-menu__top {
+        transform: rotate(-45deg) translate(0px, 60%);
+      }
+
+      .icon-menu__bottom {
+        transform: rotate(45deg) translate(0px, -80%);
+      }
+    }
   }
 }
