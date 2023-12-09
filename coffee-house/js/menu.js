@@ -1,7 +1,130 @@
 "use strict"
+import products from '../js/products.json' assert { type: 'json'}
 
 document.addEventListener("DOMContentLoaded", function() {
-  ///////////////close and open modal
+//============Categories of products
+
+  //const productsData = products; //массив объектов для работы
+  console.log(products);
+
+  /*
+  function generateCard(product) {
+    const cardTemplate = `
+      <li class="tabs-menu__item">
+        <article class="tabs-menu__card">
+          <h2 class="visually-hidden">Product Card</h2>
+          <div class="tabs-menu__image">
+            <img src="${product.image}" "alt="${product.name}">
+          </div>
+          <div class="tabs-menu__content">
+            <div class="tabs-menu__title">${product.name}</div>
+            <div class="tabs-menu__text">${product.description}</div>
+            <div class="tabs-menu__price">$${product.price}</div>
+          </div>
+        </article>
+      </li>
+    `;
+    return cardTemplate;
+  }
+  */
+  function createCardElement(product) {
+    const li = document.createElement('li');
+    li.classList.add('tabs-menu__item');
+
+    const article = document.createElement('article');
+    article.classList.add('tabs-menu__card');
+
+    const h2 = document.createElement('h2');
+    h2.classList.add('visually-hidden');
+    h2.textContent = 'Product Card';
+
+    const divImage = document.createElement('div');
+    divImage.classList.add('tabs-menu__image');
+
+    const img = document.createElement('img');
+    img.src = product.image;
+    img.alt = product.name;
+
+    const divContent = document.createElement('div');
+    divContent.classList.add('tabs-menu__content');
+
+    const divTitle = document.createElement('div');
+    divTitle.classList.add('tabs-menu__title');
+    divTitle.textContent = product.name;
+
+    const divText = document.createElement('div');
+    divText.classList.add('tabs-menu__text');
+    divText.textContent = product.description;
+
+    const divPrice = document.createElement('div');
+    divPrice.classList.add('tabs-menu__price');
+    divPrice.textContent = `$${product.price}`;
+
+    divImage.appendChild(img);
+    divContent.appendChild(divTitle);
+    divContent.appendChild(divText);
+    divContent.appendChild(divPrice);
+
+    article.appendChild(h2);
+    article.appendChild(divImage);
+    article.appendChild(divContent);
+
+    li.appendChild(article);
+
+    return li;
+  }
+
+
+  const coffeeButton = document.querySelector('.button-coffee');
+  const teaButton = document.querySelector('.button-tea');
+  const dessertButton = document.querySelector('.button-dessert');
+  const choiceButtons = document.querySelectorAll('.tabs-menu__button');
+  console.log(choiceButtons);
+  let selectedCategory = 'coffee';
+
+  if (choiceButtons.length > 0) {
+    choiceButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        if (button === coffeeButton) {
+          showCardsByCategory('coffee');
+          dessertButton.classList.remove('menu-button-active');
+          coffeeButton.classList.add('menu-button-active');
+        }
+        if (button === teaButton) {
+          showCardsByCategory('tea');
+          coffeeButton.classList.remove('menu-button-active');
+          teaButton.classList.add('menu-button-active');
+        }
+        if (button === dessertButton) {
+          showCardsByCategory('dessert');
+          teaButton.classList.remove('menu-button-active');
+          dessertButton.classList.add('menu-button-active');
+        }
+      });
+    });
+  }
+
+  showCardsByCategory(selectedCategory);
+  
+
+  function showCardsByCategory(category) {
+    const filteredProducts = products.filter(product => product.category === category);
+    const productsContainer = document.querySelector('.tabs-menu__body');
+    productsContainer.innerHTML = '';
+
+  // Генерируем и отображаем карточки
+    filteredProducts.forEach(product => {
+      const cardElement = createCardElement(product);
+      productsContainer.appendChild(cardElement);
+    });
+  }
+
+
+
+//============Categories of products
+
+
+///////////////close and open modal
   const modalMenu = document.querySelector('.modal-menu');
   const openModalMenu = document.querySelectorAll('.tabs-menu__card');
   const closeModalButton = document.querySelector('.button-modal-close');
@@ -68,7 +191,9 @@ document.addEventListener("DOMContentLoaded", function() {
       unlock = true;
     }, timeout);
   }
-  ///////////////close and open modal
+///////////////close and open modal
+
+
 
 //DON'T TOUCH!!!!!
 });  

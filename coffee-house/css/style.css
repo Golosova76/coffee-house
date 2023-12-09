@@ -1263,7 +1263,6 @@ body.lock-menu {
 }
 .tabs-menu__button.menu-button-active {
   background-color: #665F55;
-  pointer-events: none;
 }
 .tabs-menu__button.menu-button-active .tabs-menu__btn-img {
   background-color: #E1D4C9;
@@ -1285,8 +1284,8 @@ body.lock-menu {
   background-color: #C1B6AD;
   width: 30px;
   height: 30px;
-  -webkit-transition: background-color 0.4s ease 0s;
-  transition: background-color 0.4s ease 0s;
+  -webkit-transition: background-color 0.5s ease 0s;
+  transition: background-color 0.5s ease 0s;
 }
 .tabs-menu__btn-img img {
   display: block;
@@ -1338,18 +1337,6 @@ body.lock-menu {
   width: 100%;
   min-height: 506px;
   cursor: pointer;
-  /*
-  @media (any-hover: hover) {
-    &:hover {
-      .tabs-menu__image {
-        img {
-          transition: all 0.5s ease 0s;
-          transform: scale(0.92);
-        }
-      }
-    }
-  }
-  */
 }
 .tabs-menu__image {
   overflow: hidden;
@@ -1464,8 +1451,8 @@ body.lock-menu {
   background-color: rgba(64, 63, 61, 0.8);
   opacity: 0;
   visibility: hidden;
-  -webkit-transition: all 0.8s ease 0s;
-  transition: all 0.8s ease 0s;
+  -webkit-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
 }
 .modal.popup-open {
   opacity: 1;
@@ -1488,8 +1475,8 @@ body.lock-menu {
       -ms-flex-pack: center;
           justify-content: center;
   min-height: 100%;
-  -webkit-transition: all 0.8s ease 0s;
-  transition: all 0.8s ease 0s;
+  -webkit-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
 }
 @media (max-width: 720px) {
   .modal-menu__body {
@@ -1508,8 +1495,8 @@ body.lock-menu {
   opacity: 0;
   -webkit-transform: perspective(600px) translate(0px, -100%) rotateX(45deg);
           transform: perspective(600px) translate(0px, -100%) rotateX(45deg);
-  -webkit-transition: all 0.8s ease 0s;
-  transition: all 0.8s ease 0s;
+  -webkit-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
 }
 @media (max-width: 768px) {
   .modal-menu__content {

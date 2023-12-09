@@ -126,7 +126,6 @@ body {
 
     &.menu-button-active {
       background-color: $colorBackgroundContainer;
-      pointer-events: none;
 
       .tabs-menu__btn-img {
         background-color: $colorBackgroundBody;
@@ -208,18 +207,7 @@ body {
     width: 100%;
     min-height: 506px;
     cursor: pointer;
-    /*
-    @media (any-hover: hover) {
-      &:hover {
-        .tabs-menu__image {
-          img {
-            transition: all 0.5s ease 0s;
-            transform: scale(0.92);
-          }
-        }
-      }
-    }
-    */
+
   }
 
   // .tabs-menu__image
