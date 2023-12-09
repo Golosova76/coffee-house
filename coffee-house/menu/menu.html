@@ -16,24 +16,28 @@
         <a class="header__logo" href="../">
           <img src="../img/header/logo.png" alt="Logotype">
         </a>
-        <div class="header__menu menu">
-          <nav class="menu__body">
-            <ul class="menu__list">
-              <li class="menu__item"><a href="../#favorite" class="menu__link">Favorite coffee</a></li>
-              <li class="menu__item"><a href="../#about" class="menu__link">About</a></li>
-              <li class="menu__item"><a href="../#mobile" class="menu__link">Mobile app</a></li>
-              <li class="menu__item"><a href="#footer" class="menu__link">Contact us</a></li>
+        <div class="header__menu menu-header">
+          <nav class="menu-header__body">
+            <ul class="menu-header__list">
+              <li class="menu-header__item">
+                <a href="../#favorite" class="menu-header__link">Favorite coffee</a>
+              </li>
+              <li class="menu-header__item">
+                <a href="../#about" class="menu-header__link">About</a>
+              </li>
+              <li class="menu-header__item">
+                <a href="../#mobile" class="menu-header__link">Mobile app</a>
+              </li>
+              <li class="menu-header__item">
+                <a href="#footer" class="menu-header__link" data-goto=".footer-menu">Contact us</a>
+              </li>
             </ul>
           </nav>
+          <a class="header__icon-menu" href="#!">Menu</a>
         </div>
-        <a class="header__icon-menu" href="#!">Menu</a>
         <button class="header__button-icon icon-menu" type="button">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="2" viewBox="0 0 18 2" fill="none">
-            <path d="M1 1H17" stroke="#403F3D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="2" viewBox="0 0 18 2" fill="none">
-            <path d="M1 1H17" stroke="#403F3D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
+          <span class="icon-menu__top"></span>
+          <span class="icon-menu__bottom"></span>
         </button>
       </div>
     </header>
@@ -44,19 +48,19 @@
           <div class="menu__text">Behind each of our cups hides an <span>amazing surprise</span></div>
           <div class="menu__tabs tabs-menu">
             <div class="tabs-menu__nav">
-              <button class="tabs-menu__button menu-button-active">
+              <button class="tabs-menu__button button-coffee menu-button-active">
                 <span class="tabs-menu__btn-img">
                   <img src="../img/menu/icons/coffee.svg" alt="Coffee">
                 </span>
                 <span class="tabs-menu__btn-text">Coffee</span>
               </button>
-              <button class="tabs-menu__button">
+              <button class="tabs-menu__button button-tea">
                 <span class="tabs-menu__btn-img">
                   <img src="../img/menu/icons/tea.svg" alt="Tea">
                 </span>
                 <span class="tabs-menu__btn-text">Tea</span>
               </button>
-              <button class="tabs-menu__button">
+              <button class="tabs-menu__button button-dessert">
                 <span class="tabs-menu__btn-img">
                   <img src="../img/menu/icons/dessert.svg" alt="Dessert">
                 </span>
@@ -64,7 +68,7 @@
               </button>
             </div>
             <ul class="tabs-menu__body">
-              <li class="tabs-menu__item">
+              <!-- <li class="tabs-menu__item">
                 <article class="tabs-menu__card">
                   <h2 class="visually-hidden">Product Card</h2>
                   <div class="tabs-menu__image">
@@ -167,7 +171,7 @@
                     <div class="tabs-menu__price">$6.50</div>
                   </div>
                 </article>
-              </li>
+              </li> -->
             </ul>
           </div>
           <div class="menu__load">
@@ -181,7 +185,7 @@
         </div>
       </section>
     </main>
-    <footer class="footer" id="footer">
+    <footer class="footer footer-menu" id="footer">
       <div class="footer__container footer__container_menu">
         <div class="footer__body">
           <div class="footer__content">
@@ -255,7 +259,62 @@
         </div>
       </div>
     </footer>
+    <div class="modal modal-menu">
+      <div class="modal-menu__body">
+        <div class="modal-menu__content">
+          <div class="modal-menu__left">
+            <div class="modal-menu__image-ibg">
+              <img src="../img/menu/coffee/coffee-1.jpg" alt="Coffee">
+            </div>
+          </div>
+          <div class="modal-menu__right">
+            <div class="modal-menu__top">
+              <h3 class="modal-menu__title">Irish coffee</h3>
+              <div class="modal-menu__text">Fragrant black coffee with Jameson Irish whiskey and whipped milk</div>
+            </div>
+            <div class="modal-menu__mass menu-size">
+              <div class="menu-size__subtitle">Size</div>
+              <div class="menu-size__buttons">
+                <button class="menu-size__button button-s size-active" type="button"><span class="menu-size__name">S</span>200 ml</button>
+                <button class="menu-size__button button-m" type="button"><span class="menu-size__name">M</span>300 ml</button>
+                <button class="menu-size__button button-l" type="button"><span class="menu-size__name">L</span>400 ml</button>
+              </div>
+            </div>
+            <div class="modal-menu__additive menu-additives">
+              <div class="menu-additives__subtitle">Additives</div>
+              <div class="menu-additives__buttons">
+                <button class="menu-additives__button button-1" type="button"><span class="menu-additives__index">1</span>Sugar</button>
+                <button class="menu-additives__button button-2" type="button"><span class="menu-additives__index">2</span>Cinnamon</button>
+                <button class="menu-additives__button button-3" type="button"><span class="menu-additives__index">3</span>Syrup</button>
+              </div>
+            </div>
+            <div class="modal-menu__total menu-price">
+              <div class="menu-price__text">Total:</div>
+              <div class="menu-price__count">$7.00</div>
+            </div>
+            <div class="modal-menu__info menu-info">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <g clip-path="url(#clip0_268_9737)">
+                  <path d="M8 7.66663V11" stroke="#403F3D" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M8 5.00667L8.00667 4.99926" stroke="#403F3D" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M8.00016 14.6667C11.6821 14.6667 14.6668 11.6819 14.6668 8.00004C14.6668 4.31814 11.6821 1.33337 8.00016 1.33337C4.31826 1.33337 1.3335 4.31814 1.3335 8.00004C1.3335 11.6819 4.31826 14.6667 8.00016 14.6667Z" stroke="#403F3D" stroke-linecap="round" stroke-linejoin="round" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_268_9737">
+                    <rect width="16" height="16" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+              <div class="menu-info__text">The cost is not final. Download our mobile app to see the final price and place your order. Earn loyalty points and enjoy your favorite coffee with up to 20% discount.</div>
+            </div>
+            <button class="modal-menu__button button-modal-close">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+  <script src="../js/script.js"></script>
+  <script type="module" src="../js/menu.js"></script>
 </body>
 
 </html>

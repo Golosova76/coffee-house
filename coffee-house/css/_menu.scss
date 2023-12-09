@@ -1,3 +1,9 @@
+body {
+  &.lock-menu {
+    overflow: hidden;
+  }
+}
+
 .menu {
 
   // .menu__container
@@ -120,7 +126,6 @@
 
     &.menu-button-active {
       background-color: $colorBackgroundContainer;
-      pointer-events: none;
 
       .tabs-menu__btn-img {
         background-color: $colorBackgroundBody;
@@ -142,7 +147,7 @@
     background-color: $colorBorderLight;
     width: 30px;
     height: 30px;
-    transition: background-color 0.4s ease 0s;
+    transition: background-color 0.5s ease 0s;
 
     img {
       display: block;
@@ -203,35 +208,30 @@
     min-height: 506px;
     cursor: pointer;
 
-    @media (any-hover: hover) {
-      &:hover {
-        .tabs-menu__image {
-          img {
-            transition: all 0.5s ease 0s;
-            transform: scale(0.92);
-          }
-        }
-      }
-    }
   }
 
   // .tabs-menu__image
 
   &__image {
-    position: relative;
+    //position: relative;
     overflow: hidden;
     border-radius: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 310px;
+    max-width: 340px;
     max-height: 310px;
     width: 100%;
 
     img {
-      width: 100%;
       transition: all 0.5s ease 0s;
       border-radius: 40px;
+
+      @media (any-hover: hover) {
+        &:hover {
+          transform: scale(0.92);
+        }
+      }
     }
   }
 
@@ -274,6 +274,8 @@
   pointer-events: none;
   user-select: none;
   padding-right: 28px;
+  margin-left: auto;
+  //z-index: 5;
 
   &::after {
     content: '';
@@ -298,7 +300,17 @@
   }
 
   @include media-query-max-width(medium) {
-    display: none;
+    padding-right: 56px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: -3px;
+      right: px;
+      width: 40px;
+      height: 40px;
+      background-image: url(../img/header/coffee-cup40.svg);
+    }
   }
 }
 
