@@ -87,16 +87,19 @@ document.addEventListener("DOMContentLoaded", function() {
       button.addEventListener('click', () => {
         if (button === coffeeButton) {
           showCardsByCategory('coffee');
+          teaButton.classList.remove('menu-button-active');
           dessertButton.classList.remove('menu-button-active');
           coffeeButton.classList.add('menu-button-active');
         }
         if (button === teaButton) {
           showCardsByCategory('tea');
           coffeeButton.classList.remove('menu-button-active');
+          dessertButton.classList.remove('menu-button-active');
           teaButton.classList.add('menu-button-active');
         }
         if (button === dessertButton) {
           showCardsByCategory('dessert');
+          coffeeButton.classList.remove('menu-button-active');
           teaButton.classList.remove('menu-button-active');
           dessertButton.classList.add('menu-button-active');
         }
