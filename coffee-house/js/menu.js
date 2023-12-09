@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
 //============Categories of products
 
   //const productsData = products; //массив объектов для работы
-  console.log(products);
+  //console.log(products);
 
   /*
   function generateCard(product) {
@@ -79,7 +79,6 @@ document.addEventListener("DOMContentLoaded", function() {
   const teaButton = document.querySelector('.button-tea');
   const dessertButton = document.querySelector('.button-dessert');
   const choiceButtons = document.querySelectorAll('.tabs-menu__button');
-  console.log(choiceButtons);
   let selectedCategory = 'coffee';
 
   if (choiceButtons.length > 0) {
@@ -136,11 +135,13 @@ document.addEventListener("DOMContentLoaded", function() {
   let unlock = true;
 
   function closeModal() {
-    const modal = document.querySelector('.modal.popup-open');
-    modal.classList.remove('popup-open');
-    if (unlock) {
-      bodyUnLock();
-    }
+    const modal = document.querySelector('.modal.popup-open');    
+    if (modal) {
+      modal.classList.remove('popup-open');
+      if (unlock) {
+        bodyUnLock();
+      }
+    } 
   }
   
   function openModal() {
@@ -151,21 +152,24 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   if (openModalMenu.length > 0) {
-    openModalMenu.forEach(modal => {
-      modal.addEventListener('click', openModal);
+    document.body.addEventListener('click', (event) => {
+      const clickedCard = event.target.closest('.tabs-menu__card');
+      if (clickedCard) {
+        openModal();
+      }
     });
   }
+
 
   function addCloseListener(modal, contentClass) {
     modal.addEventListener('click', function(e) {
       if (!e.target.closest(contentClass)) {
-        modal.classList.remove('popup-open');
-        if (unlock) {
-          bodyUnLock();
-        }
+        closeModal();
       }
     });
   }
+
+
   addCloseListener(modalMenu, '.modal-menu__content');
 
   closeModalButton.addEventListener('click', closeModal); 

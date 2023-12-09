@@ -1451,8 +1451,10 @@ body.lock-menu {
   background-color: rgba(64, 63, 61, 0.8);
   opacity: 0;
   visibility: hidden;
-  -webkit-transition: all 0.5s ease 0s;
-  transition: all 0.5s ease 0s;
+  -webkit-transition: opacity 0.5s ease-out, visibility 0.5s ease-out, -webkit-transform 0.5s ease-out;
+  transition: opacity 0.5s ease-out, visibility 0.5s ease-out, -webkit-transform 0.5s ease-out;
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out, visibility 0.5s ease-out;
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out, visibility 0.5s ease-out, -webkit-transform 0.5s ease-out;
 }
 .modal.popup-open {
   opacity: 1;
@@ -1475,8 +1477,6 @@ body.lock-menu {
       -ms-flex-pack: center;
           justify-content: center;
   min-height: 100%;
-  -webkit-transition: all 0.5s ease 0s;
-  transition: all 0.5s ease 0s;
 }
 @media (max-width: 720px) {
   .modal-menu__body {
@@ -1495,8 +1495,10 @@ body.lock-menu {
   opacity: 0;
   -webkit-transform: perspective(600px) translate(0px, -100%) rotateX(45deg);
           transform: perspective(600px) translate(0px, -100%) rotateX(45deg);
-  -webkit-transition: all 0.5s ease 0s;
-  transition: all 0.5s ease 0s;
+  -webkit-transition: opacity 0.5s ease-out, -webkit-transform 0.5s ease-out;
+  transition: opacity 0.5s ease-out, -webkit-transform 0.5s ease-out;
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out, -webkit-transform 0.5s ease-out;
 }
 @media (max-width: 768px) {
   .modal-menu__content {
