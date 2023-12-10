@@ -3,7 +3,6 @@ import products from '../js/products.json' assert { type: 'json'}
 
 document.addEventListener("DOMContentLoaded", function() {
 //============Categories of products
-
   //const productsData = products; //массив объектов для работы
   //console.log(products);
 
@@ -54,7 +53,6 @@ document.addEventListener("DOMContentLoaded", function() {
     return li;
   }
 
-
   const coffeeButton = document.querySelector('.button-coffee');
   const teaButton = document.querySelector('.button-tea');
   const dessertButton = document.querySelector('.button-dessert');
@@ -87,7 +85,6 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   showCardsByCategory(selectedCategory);
-  
 
   function showCardsByCategory(category) {
     const filteredProducts = products.filter(product => product.category === category);
@@ -105,8 +102,6 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
 //============Categories of products
-
-
 ///////////////close and open modal
   const modalMenu = document.querySelector('.modal-menu');
   const closeModalButton = document.querySelector('.button-modal-close');
@@ -233,7 +228,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 
-
   addCloseListener(modalMenu, '.modal-menu__content');
 
   closeModalButton.addEventListener('click', closeModal); 
@@ -263,7 +257,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }, timeout);
   }
 ///////////////close and open modal
-
 
 
 //DON'T TOUCH!!!!!
