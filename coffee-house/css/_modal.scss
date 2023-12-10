@@ -9,6 +9,7 @@
   opacity: 0;
   visibility: hidden;
   transition: transform 0.5s ease-out, opacity 0.5s ease-out, visibility 0.5s ease-out;
+  cursor: pointer;
 
 
 
@@ -225,6 +226,7 @@
     background-color: $colorBorderLight;
     padding: 3px 7px 3px 8px;
     line-height: $fontLineHeight;
+    text-transform: uppercase;
   }
 }
 
@@ -284,6 +286,7 @@
     height: 30px;
     border-radius: 100px;
     background-color: $colorBorderLight;
+    color: $colorTextDark;
     padding: 3px 7px 3px 8px;
     line-height: $fontLineHeight;
   }
@@ -303,7 +306,11 @@
 
   // .menu-price__count
 
-  &__count {}
+  &__count {
+    span {
+      margin-right: 4px;
+    }
+  }
 }
 
 .menu-info {

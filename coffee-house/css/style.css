@@ -1455,6 +1455,7 @@ body.lock-menu {
   transition: opacity 0.5s ease-out, visibility 0.5s ease-out, -webkit-transform 0.5s ease-out;
   transition: transform 0.5s ease-out, opacity 0.5s ease-out, visibility 0.5s ease-out;
   transition: transform 0.5s ease-out, opacity 0.5s ease-out, visibility 0.5s ease-out, -webkit-transform 0.5s ease-out;
+  cursor: pointer;
 }
 .modal.popup-open {
   opacity: 1;
@@ -1660,6 +1661,7 @@ body.lock-menu {
   background-color: #C1B6AD;
   padding: 3px 7px 3px 8px;
   line-height: 150%;
+  text-transform: uppercase;
 }
 
 .menu-additives__subtitle {
@@ -1706,8 +1708,13 @@ body.lock-menu {
   height: 30px;
   border-radius: 100px;
   background-color: #C1B6AD;
+  color: #403F3D;
   padding: 3px 7px 3px 8px;
   line-height: 150%;
+}
+
+.menu-price__count span {
+  margin-right: 4px;
 }
 
 .menu-info__text {
