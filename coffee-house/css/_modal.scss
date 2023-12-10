@@ -8,7 +8,9 @@
   background-color: $colorBackgroundBackdrop;
   opacity: 0;
   visibility: hidden;
-  transition: all 0.5s ease 0s;
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out, visibility 0.5s ease-out;
+  cursor: pointer;
+
 
 
   &.popup-open {
@@ -31,7 +33,6 @@
     align-items: center;
     justify-content: center;
     min-height: 100%;
-    transition: all 0.5s ease 0s;
 
     @media (max-width: 720px) {
       padding: 10px;
@@ -49,7 +50,7 @@
     padding: 16px;
     opacity: 0;
     transform: perspective(600px) translate(0px, -100%) rotateX(45deg);
-    transition: all 0.5s ease 0s;
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
 
     @include media-query-max-width(medium) {
       max-width: 688px;
@@ -225,6 +226,7 @@
     background-color: $colorBorderLight;
     padding: 3px 7px 3px 8px;
     line-height: $fontLineHeight;
+    text-transform: uppercase;
   }
 }
 
@@ -284,6 +286,7 @@
     height: 30px;
     border-radius: 100px;
     background-color: $colorBorderLight;
+    color: $colorTextDark;
     padding: 3px 7px 3px 8px;
     line-height: $fontLineHeight;
   }
@@ -303,7 +306,11 @@
 
   // .menu-price__count
 
-  &__count {}
+  &__count {
+    span {
+      margin-right: 4px;
+    }
+  }
 }
 
 .menu-info {
