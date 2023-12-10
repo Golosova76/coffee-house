@@ -5,28 +5,8 @@ document.addEventListener("DOMContentLoaded", function() {
 //============Categories of products
 
   //const productsData = products; //массив объектов для работы
-  console.log(products);
+  //console.log(products);
 
-  /*
-  function generateCard(product) {
-    const cardTemplate = `
-      <li class="tabs-menu__item">
-        <article class="tabs-menu__card">
-          <h2 class="visually-hidden">Product Card</h2>
-          <div class="tabs-menu__image">
-            <img src="${product.image}" "alt="${product.name}">
-          </div>
-          <div class="tabs-menu__content">
-            <div class="tabs-menu__title">${product.name}</div>
-            <div class="tabs-menu__text">${product.description}</div>
-            <div class="tabs-menu__price">$${product.price}</div>
-          </div>
-        </article>
-      </li>
-    `;
-    return cardTemplate;
-  }
-  */
   function createCardElement(product) {
     const li = document.createElement('li');
     li.classList.add('tabs-menu__item');
@@ -79,7 +59,6 @@ document.addEventListener("DOMContentLoaded", function() {
   const teaButton = document.querySelector('.button-tea');
   const dessertButton = document.querySelector('.button-dessert');
   const choiceButtons = document.querySelectorAll('.tabs-menu__button');
-  console.log(choiceButtons);
   let selectedCategory = 'coffee';
 
   if (choiceButtons.length > 0) {
@@ -87,16 +66,19 @@ document.addEventListener("DOMContentLoaded", function() {
       button.addEventListener('click', () => {
         if (button === coffeeButton) {
           showCardsByCategory('coffee');
+          teaButton.classList.remove('menu-button-active');
           dessertButton.classList.remove('menu-button-active');
           coffeeButton.classList.add('menu-button-active');
         }
         if (button === teaButton) {
           showCardsByCategory('tea');
           coffeeButton.classList.remove('menu-button-active');
+          dessertButton.classList.remove('menu-button-active');
           teaButton.classList.add('menu-button-active');
         }
         if (button === dessertButton) {
           showCardsByCategory('dessert');
+          coffeeButton.classList.remove('menu-button-active');
           teaButton.classList.remove('menu-button-active');
           dessertButton.classList.add('menu-button-active');
         }
@@ -116,53 +98,142 @@ document.addEventListener("DOMContentLoaded", function() {
     filteredProducts.forEach(product => {
       const cardElement = createCardElement(product);
       productsContainer.appendChild(cardElement);
+      cardElement.addEventListener('click', () => {
+            openModal(product);
+        });
     });
   }
-
-
 
 //============Categories of products
 
 
 ///////////////close and open modal
   const modalMenu = document.querySelector('.modal-menu');
-  const openModalMenu = document.querySelectorAll('.tabs-menu__card');
   const closeModalButton = document.querySelector('.button-modal-close');
-  const body = document.querySelector('body'); 
+  const body = document.querySelector('body');
+  const modalName = document.querySelector('.modal-menu__title');
+  const modalText = document.querySelector('.modal-menu__text');
+  const modalImage = document.querySelector('.modal-menu__image-ibg img');
+  const modalSizesButtons = document.querySelectorAll('.menu-size__button');
+  const modalAdditivesButtons = document.querySelectorAll('.menu-additives__button');
+  const modalTotal = document.querySelector('.menu-price__count');
   const timeout = 500;
   let unlock = true;
 
   function closeModal() {
-    const modal = document.querySelector('.modal.popup-open');
-    modal.classList.remove('popup-open');
-    if (unlock) {
-      bodyUnLock();
-    }
+    const modal = document.querySelector('.modal.popup-open');    
+    if (modal) {
+      modal.classList.remove('popup-open');
+      if (unlock) {
+        bodyUnLock();
+      }
+    } 
+    resetAdditivesState();
+    resetSizeState();
   }
   
-  function openModal() {
+  function openModal(product) {
+    modalName.textContent = product.name;
+    modalText.textContent = product.description;
+    modalImage.src = product.image;
+    modalTotal.textContent = `$${product.price}`;
+
+    let totalPriceAdditives = 0;
+    let totalPriceSize = 0;
+
+    const updateTotalPrice = () => {
+      const totalPrice = parseFloat(product.price) + parseFloat(totalPriceSize) + parseFloat(totalPriceAdditives);
+      modalTotal.textContent = `$${totalPrice.toFixed(2)}`;
+    };
+    
+    modalSizesButtons.forEach((button, index) => {
+      const sizeKey = Object.keys(product.sizes)[index];
+      const sizeValue = product.sizes[sizeKey];
+      
+      const sizeSpan = button.querySelector('.menu-size__name');
+      const volumeSpan = button.querySelector('.menu-size__volume');
+      
+      sizeSpan.textContent = sizeKey.toUpperCase();
+      volumeSpan.textContent = sizeValue.size;
+      
+      button.addEventListener('click', () => {
+        modalSizesButtons.forEach(btn => btn.classList.remove('size-active'));
+        button.classList.add('size-active');
+        const size = sizeKey;
+        totalPriceSize = parseFloat(product.sizes[size]['add-price']);
+        updateTotalPrice();
+      });
+    });
+
+    const additiveStates = Array.from({ length: modalAdditivesButtons.length }).fill(false);
+    
+    modalAdditivesButtons.forEach((button, index) => {
+      const additive = product.additives[index];
+      const additiveName = button.querySelector('.menu-additives__name');
+      const additiveIndex = button.querySelector('.menu-additives__index');
+
+      additiveName.textContent = additive.name;
+      additiveIndex.textContent = (index + 1).toString();
+
+      button.addEventListener('click', () => {
+        // Изменение состояния кнопки добавки
+        additiveStates[index] = !additiveStates[index];
+
+        // Применение стилей в зависимости от состояния
+        if (additiveStates[index]) {
+          button.classList.add('additives-active');
+        } else {
+          button.classList.remove('additives-active');
+        }
+        totalPriceAdditives = calculateTotalPrice(product, additiveStates);
+        updateTotalPrice();
+      });
+    });
+
+    function calculateTotalPrice(product, additiveStates) {
+      let total = 0;
+
+      // Расчет цены за выбранные добавки
+      additiveStates.forEach((isActive, index) => {
+        if (isActive) {
+          total += parseFloat(product.additives[index]['add-price']);
+        }
+      });
+
+      return total;
+    }
+    
     modalMenu.classList.add('popup-open');
     if (modalMenu && unlock) {
       bodyLock();
-    }
+    } 
   }
 
-  if (openModalMenu.length > 0) {
-    openModalMenu.forEach(modal => {
-      modal.addEventListener('click', openModal);
+  function resetAdditivesState() {
+    modalAdditivesButtons.forEach(button => {
+      button.classList.remove('additives-active');
+    });
+  }
+
+  function resetSizeState() {
+    modalSizesButtons.forEach((button, index) => {
+      if (index === 0) {
+        button.classList.add('size-active');
+      } else {
+        button.classList.remove('size-active');
+      }
     });
   }
 
   function addCloseListener(modal, contentClass) {
     modal.addEventListener('click', function(e) {
       if (!e.target.closest(contentClass)) {
-        modal.classList.remove('popup-open');
-        if (unlock) {
-          bodyUnLock();
-        }
+        closeModal();
       }
     });
   }
+
+
   addCloseListener(modalMenu, '.modal-menu__content');
 
   closeModalButton.addEventListener('click', closeModal); 
