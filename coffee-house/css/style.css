@@ -515,16 +515,6 @@ html {
             transform: translateX(0%);
   }
 }
-.enjoy__image-ibg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-.enjoy__image-ibg img {
-  border-radius: 40px;
-}
 .enjoy__video {
   border-radius: 40px;
 }
