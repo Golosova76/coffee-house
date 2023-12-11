@@ -170,6 +170,7 @@
 
   &__image-ibg {
     padding-bottom: 100%;
+    pointer-events: none;
 
     &:not(:last-child) {
       margin-bottom: 20px;
