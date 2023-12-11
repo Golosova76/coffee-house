@@ -351,7 +351,7 @@ html {
     width: 44px;
     height: 44px;
     border-radius: 100px;
-    border: 1px solid var(--border-dark, #665F55);
+    border: 1px solid #665F55;
   }
   .icon-menu span {
     width: 16px;
@@ -362,7 +362,11 @@ html {
     transition: all 0.8s ease 0s;
   }
   .icon-menu.menu-active {
+    background-color: #665F55;
     gap: 0;
+  }
+  .icon-menu.menu-active span {
+    background-color: #E1D4C9;
   }
   .icon-menu.menu-active .icon-menu__top {
     -webkit-transform: rotate(-45deg) translate(0px, 60%);

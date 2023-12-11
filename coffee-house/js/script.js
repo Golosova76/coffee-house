@@ -5,12 +5,17 @@ document.addEventListener("DOMContentLoaded", function() {
   //burger menu
   const iconMenu = document.querySelector('.icon-menu');
   const menuBody = document.querySelector('.header__menu')
+  const iconMenuMenu = document.querySelector('.header__icon-menu');
+  console.log(iconMenuMenu)
   
   if (iconMenu) {
     iconMenu.addEventListener("click", function (e) {
       document.body.classList.toggle('lock');
       iconMenu.classList.toggle('menu-active');
       menuBody.classList.toggle('menu-active');
+      if (menuBody.classList.contains('menu-active')) {
+        iconMenuMenu.style.pointerEvents = 'auto';
+    }
     });
   }
 
@@ -24,7 +29,18 @@ document.addEventListener("DOMContentLoaded", function() {
       menuBody.classList.remove('menu-active');
     }
   });
-  //burger menu
+
+  function closeMenu() {
+    document.body.classList.remove('lock');
+    iconMenu.classList.remove('menu-active');
+    menuBody.classList.remove('menu-active');
+    iconMenuMenu.style.pointerEvents = 'none';
+  }
+
+  if (iconMenuMenu) {
+      iconMenuMenu.addEventListener("click", closeMenu);
+  }
+  //burger menu-A
 
   //click scrolling
   const menuLinks = document.querySelectorAll('.menu-header__link[data-goto]');
@@ -56,8 +72,4 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
   //click scrolling
-
-  
-
-  //DON'T TOUCH!!!!!
 });
