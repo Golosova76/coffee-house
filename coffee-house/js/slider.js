@@ -94,16 +94,23 @@ document.addEventListener("DOMContentLoaded", function() {
     progress = 0; // Сброс прогресса
   }
 
-  // Функции обработки событий мыши
-  wrapper.addEventListener('mouseenter', function() {
+  function animationStart() {
     cursorHovered = true;
     cancelAnimationFrame(progressAnimationFrame); // Остановить анимацию прогресса
-  });
+  }
 
-  wrapper.addEventListener('mouseleave', function() {
+  function animationEnd() {
     cursorHovered = false;
     startProgressBar(); // Возобновить анимацию прогресса
-  });
+  }
+
+  // обработка событий мыши
+  wrapper.addEventListener('mouseenter', animationStart);
+  wrapper.addEventListener('mouseleave', animationEnd);
+
+  // обработка событий для касаний
+  wrapper.addEventListener('touchstart', animationStart);
+  wrapper.addEventListener('touchend', animationEnd);
 
 
   //свайп вправо/влево касанием 
