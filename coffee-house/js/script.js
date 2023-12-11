@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", function() {
   const iconMenu = document.querySelector('.icon-menu');
   const menuBody = document.querySelector('.header__menu')
   const iconMenuMenu = document.querySelector('.header__icon-menu');
-  console.log(iconMenuMenu)
   
   if (iconMenu) {
     iconMenu.addEventListener("click", function (e) {
