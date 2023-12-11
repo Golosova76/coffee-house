@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
   let progress = 0; // переменная для отслеживания прогресса
   let startTime = Date.now(); // переменная для отслеживания времени старта
   let cursorHovered = false;
+   let interactionInProgress = false; //переменная для отслеживания взаимодействия
   const MAX_PROGRESS = 100; //макс значение прогресса в %
   
     
@@ -96,12 +97,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
   function animationStart() {
     cursorHovered = true;
+    interactionInProgress = true;
     cancelAnimationFrame(progressAnimationFrame); // Остановить анимацию прогресса
   }
 
   function animationEnd() {
     cursorHovered = false;
-    startProgressBar(); // Возобновить анимацию прогресса
+    interactionInProgress = false;
+    if (progress < MAX_PROGRESS) {
+      startProgressBar(); // Возобновляем прогресс бар только если прогресс не достиг 100%
+    } else {
+      moveNext(); // Переходим к следующему слайду, если прогресс бар достиг 100%
+    }
   }
 
   // обработка событий мыши

@@ -668,6 +668,7 @@ html {
 }
 .content__image-ibg {
   padding-bottom: 100%;
+  pointer-events: none;
 }
 .content__image-ibg:not(:last-child) {
   margin-bottom: 20px;
