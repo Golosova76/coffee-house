@@ -171,6 +171,13 @@
     font-weight: 600;
     line-height: $fontLineHeight;
     padding: 10px 78px;
+
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: $colorBackgroundContainer;
+        color: $colorTextLight;
+      }
+    }
   }
 }
 

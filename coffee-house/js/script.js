@@ -13,8 +13,10 @@ document.addEventListener("DOMContentLoaded", function() {
       iconMenu.classList.toggle('menu-active');
       menuBody.classList.toggle('menu-active');
       if (menuBody.classList.contains('menu-active')) {
-        iconMenuMenu.style.pointerEvents = 'auto';
-    }
+        if (iconMenuMenu) {
+          iconMenuMenu.style.pointerEvents = 'auto';
+        }
+      }
     });
   }
 

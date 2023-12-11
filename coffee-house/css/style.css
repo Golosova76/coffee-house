@@ -276,7 +276,13 @@ html {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    gap: 60px;
+    gap: 50px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
 }
 @media (min-width: 769px) {
@@ -362,11 +368,7 @@ html {
     transition: all 0.8s ease 0s;
   }
   .icon-menu.menu-active {
-    background-color: #665F55;
     gap: 0;
-  }
-  .icon-menu.menu-active span {
-    background-color: #E1D4C9;
   }
   .icon-menu.menu-active .icon-menu__top {
     -webkit-transform: rotate(-45deg) translate(0px, 60%);
@@ -586,6 +588,10 @@ html {
       -ms-flex: 0 0 100%;
           flex: 0 0 100%;
   text-align: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .slider__navigation:not(:last-child) {
   margin-bottom: 40px;
@@ -1607,6 +1613,12 @@ body.lock-menu {
   font-weight: 600;
   line-height: 150%;
   padding: 10px 78px;
+}
+@media (any-hover: hover) {
+  .modal-menu__button:hover {
+    background-color: #665F55;
+    color: #E1D4C9;
+  }
 }
 
 .menu-size__subtitle {
