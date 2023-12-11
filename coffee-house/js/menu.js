@@ -82,38 +82,13 @@ document.addEventListener("DOMContentLoaded", function() {
       });
     });
   }
-/*
-  function showCardsByCategory(category, limit = null) {
-    const filteredProducts = products.filter(product => product.category === category);
-    const productsContainer = document.querySelector('.tabs-menu__body');
-    productsContainer.innerHTML = '';
-
-    // limit
-    let displayProducts;
-
-    if (limit) {
-        displayProducts = filteredProducts.slice(0, limit);
-    } else {
-        displayProducts = filteredProducts;
-    }
-
-    // Генерируем и отображаем карточки
-    displayProducts.forEach(product => {
-      const cardElement = createCardElement(product);
-      productsContainer.appendChild(cardElement);
-      cardElement.addEventListener('click', () => {
-        openModal(product);
-      });
-    });
-  }
-*/
 
   function showCardsByCategory(category, limit = null) {
     const productsContainer = document.querySelector('.tabs-menu__body');
-    // Добавляем класс для плавного исчезновения
+    //класс для плавного исчезновения
     productsContainer.classList.add('fade-out');
 
-    // Используем setTimeout для задержки перед обновлением контента
+    // setTimeout для задержки перед обновлением контента
     setTimeout(() => {
       const filteredProducts = products.filter(product => product.category === category);
       productsContainer.innerHTML = '';
@@ -128,11 +103,10 @@ document.addEventListener("DOMContentLoaded", function() {
           openModal(product);
         });
       });
-
-      // Убираем класс fade-out и добавляем fade-in для нового контента
+      
       productsContainer.classList.remove('fade-out');
       productsContainer.classList.add('fade-in');
-    }, 300); // 500ms для совпадения с продолжительностью анимации fade-out
+    }, 300); // 300ms для совпадения с продолжительностью анимации fade-out
   }
 
 
@@ -315,5 +289,4 @@ document.addEventListener("DOMContentLoaded", function() {
     }, timeout);
   }
 //============close and open modal
-//DON'T TOUCH!!!!!
 });

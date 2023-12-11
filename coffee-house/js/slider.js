@@ -120,24 +120,7 @@ document.addEventListener("DOMContentLoaded", function() {
   let touchEndX = 0;
   let isSwiping = false; // Флаг для отслеживания свайпа
   const swipeMin = 50; // Минимальное расстояние для считывания свайпа
-  let pendingSwipeAction = null; // Действие свайпа ожидает выполнения
-
-  //wrapper.addEventListener('touchstart', animationStart);
-  //wrapper.addEventListener('touchend', animationEnd);
-  /*
-  
-  wrapper.addEventListener("touchstart", function (event) {
-    touchStartX = event.touches[0].clientX;
-  });
-
-  wrapper.addEventListener("touchmove", function (event) {
-    touchEndX = event.touches[0].clientX;
-  });
-
-  wrapper.addEventListener("touchend", function () {
-    makeSwipe();
-  });
-  */
+  let pendingSwipeAction = null; // Действие свайпа ожидает выполнения 
 
   // Обновленные обработчики событий касания
     wrapper.addEventListener('touchstart', function(event) {
@@ -171,12 +154,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     isSwiping = false;
   });
-  //свайп вправо/влево касанием
-
-
-  //DON'T TOUCH!!!!!
-  startAutoSlider();  
-  
-  //DON'T TOUCH!!!!!
+  //свайп вправо/влево касанием 
+  startAutoSlider();
 });
 
