@@ -1444,13 +1444,13 @@ body.lock-menu {
 }
 
 .fade-in {
-  -webkit-animation: fadeIn 0.4s ease-in;
-          animation: fadeIn 0.4s ease-in;
+  -webkit-animation: fadeIn 0.3s ease-in;
+          animation: fadeIn 0.3s ease-in;
 }
 
 .fade-out {
-  -webkit-animation: fadeOut 0.4s ease-out;
-          animation: fadeOut 0.4s ease-out;
+  -webkit-animation: fadeOut 0.3s ease-out;
+          animation: fadeOut 0.3s ease-out;
 }
 
 @-webkit-keyframes fadeIn {
