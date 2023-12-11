@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function() {
       // Убираем класс fade-out и добавляем fade-in для нового контента
       productsContainer.classList.remove('fade-out');
       productsContainer.classList.add('fade-in');
-    }, 400); // 500ms для совпадения с продолжительностью анимации fade-out
+    }, 300); // 500ms для совпадения с продолжительностью анимации fade-out
   }
 
 
