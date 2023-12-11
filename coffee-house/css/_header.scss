@@ -122,7 +122,9 @@
       text-align: center;
       display: flex;
       flex-direction: column;
-      gap: 60px;
+      gap: 50px;
+      justify-content: center;
+      align-items: center;
     }
 
     @include media-query-min-width(mediumTop) {
@@ -188,12 +190,6 @@
     }
 
     &.menu-active {
-      background-color: $colorBackgroundContainer;
-
-      span {
-        background-color: $colorTextLight;
-      }
-
       gap: 0;
 
       .icon-menu__top {
