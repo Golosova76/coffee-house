@@ -63,46 +63,75 @@ document.addEventListener("DOMContentLoaded", function() {
     choiceButtons.forEach(button => {
       button.addEventListener('click', () => {
         if (button === coffeeButton) {
-          showCardsByCategory('coffee');
-          teaButton.classList.remove('menu-button-active');
-          dessertButton.classList.remove('menu-button-active');
+          selectedCategory = 'coffee';
           coffeeButton.classList.add('menu-button-active');
-        }
-        if (button === teaButton) {
-          showCardsByCategory('tea');
+          teaButton.classList.remove('menu-button-active');
+          dessertButton.classList.remove('menu-button-active');
+        } else if (button === teaButton) {
+          selectedCategory = 'tea';
+          teaButton.classList.add('menu-button-active');
           coffeeButton.classList.remove('menu-button-active');
           dessertButton.classList.remove('menu-button-active');
-          teaButton.classList.add('menu-button-active');
-        }
-        if (button === dessertButton) {
-          showCardsByCategory('dessert');
+        } else if (button === dessertButton) {
+          selectedCategory = 'dessert';
+          dessertButton.classList.add('menu-button-active');
           coffeeButton.classList.remove('menu-button-active');
           teaButton.classList.remove('menu-button-active');
-          dessertButton.classList.add('menu-button-active');
         }
+        updateDisplaySize();
       });
     });
   }
 
-  showCardsByCategory(selectedCategory);
-
-  function showCardsByCategory(category) {
+  function showCardsByCategory(category, limit = null) {
     const filteredProducts = products.filter(product => product.category === category);
     const productsContainer = document.querySelector('.tabs-menu__body');
     productsContainer.innerHTML = '';
 
-  // Генерируем и отображаем карточки
-    filteredProducts.forEach(product => {
+    // limit
+    let displayProducts;
+
+    if (limit) {
+        displayProducts = filteredProducts.slice(0, limit);
+    } else {
+        displayProducts = filteredProducts;
+    }
+
+    // Генерируем и отображаем карточки
+    displayProducts.forEach(product => {
       const cardElement = createCardElement(product);
       productsContainer.appendChild(cardElement);
       cardElement.addEventListener('click', () => {
-            openModal(product);
-        });
+        openModal(product);
+      });
     });
   }
 
+  function updateDisplaySize() {
+    const windowWidth = window.innerWidth;
+    const showMoreButton = document.querySelector('.menu__load');
+    const filteredProducts = products.filter(product => product.category === selectedCategory);
+    
+    if (windowWidth <= 768 && filteredProducts.length > 4) {
+      showCardsByCategory(selectedCategory, 4);
+      showMoreButton.style.display = 'block';
+    } else {
+      showCardsByCategory(selectedCategory);
+      showMoreButton.style.display = (windowWidth > 768 || filteredProducts.length <= 4) ? 'none' : 'block';
+    }
+  }
+  
+  document.querySelector('.menu__loader').addEventListener('click', () => {
+    showCardsByCategory(selectedCategory);
+    document.querySelector('.menu__load').style.display = 'none'; 
+  });
+  
+  window.addEventListener('resize', updateDisplaySize);
+
+  updateDisplaySize(); 
+
 //============Categories of products
-///////////////close and open modal
+//============close and open modal
   const modalMenu = document.querySelector('.modal-menu');
   const closeModalButton = document.querySelector('.button-modal-close');
   const body = document.querySelector('body');
@@ -256,8 +285,6 @@ document.addEventListener("DOMContentLoaded", function() {
       unlock = true;
     }, timeout);
   }
-///////////////close and open modal
-
-
+//============close and open modal
 //DON'T TOUCH!!!!!
 });  

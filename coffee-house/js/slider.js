@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const prevButton = document.querySelector('.slider__button-prev');
   const nextButton = document.querySelector('.slider__button-next');
   const progressBar = document.querySelectorAll('.slider__pagination .slider__line');
-  const sliderInterval = 5000; //автоматперелистывание 5 сек (на время верстки 2 сек)
+  const sliderInterval = 5000; //автоматперелистывание 5 сек
   const progressIntervalStep = 100;
   let slideWidth = slides[0].offsetWidth;
   let currentSlide = 0;
@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 wrapper.addEventListener('mouseleave', function() {
-  startAutoSlider();
+  startCarousel();
   cursorHovered = false;
   currentProgress = progressOnHover;
 });
