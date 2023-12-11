@@ -115,14 +115,16 @@ document.addEventListener("DOMContentLoaded", function() {
   wrapper.addEventListener('mouseenter', animationStart);
   wrapper.addEventListener('mouseleave', animationEnd);
 
-  // обработка событий для касаний
-  wrapper.addEventListener('touchstart', animationStart);
-  wrapper.addEventListener('touchend', animationEnd);
-
-
-  //свайп вправо/влево касанием 
+  // обработка событий для касаний и свайп вправо/влево касанием 
   let touchStartX = 0;
   let touchEndX = 0;
+  let isSwiping = false; // Флаг для отслеживания свайпа
+  const swipeMin = 50; // Минимальное расстояние для считывания свайпа
+  let pendingSwipeAction = null; // Действие свайпа ожидает выполнения
+
+  //wrapper.addEventListener('touchstart', animationStart);
+  //wrapper.addEventListener('touchend', animationEnd);
+  /*
   
   wrapper.addEventListener("touchstart", function (event) {
     touchStartX = event.touches[0].clientX;
@@ -135,16 +137,40 @@ document.addEventListener("DOMContentLoaded", function() {
   wrapper.addEventListener("touchend", function () {
     makeSwipe();
   });
+  */
 
-  function makeSwipe() {
-    const swipeMin = 50; // Минимальное расстояние для считывания свайпа    
-    const swipeDistance = touchEndX - touchStartX;
-    if (swipeDistance > swipeMin) {
-      movePrev();
-    } else if (swipeDistance < -swipeMin) {
-      moveNext();
+  // Обновленные обработчики событий касания
+    wrapper.addEventListener('touchstart', function(event) {
+    touchStartX = event.touches[0].clientX;
+    animationStart();
+  });
+
+  wrapper.addEventListener('touchmove', function(event) {
+    touchEndX = event.touches[0].clientX;
+    if (Math.abs(touchEndX - touchStartX) > swipeMin) {
+      isSwiping = true;
     }
-  }
+  });
+
+  wrapper.addEventListener('touchend', function() {
+    if (!isSwiping) {
+      animationEnd();
+    } else {
+      const swipeDistance = touchEndX - touchStartX;
+      if (swipeDistance > swipeMin) {
+        pendingSwipeAction = 'prev';
+      } else if (swipeDistance < -swipeMin) {
+        pendingSwipeAction = 'next';
+      }
+
+      setTimeout(() => { 
+        if (pendingSwipeAction === 'prev') movePrev();
+        if (pendingSwipeAction === 'next') moveNext();
+        pendingSwipeAction = null;
+      }, 0);
+    }
+    isSwiping = false;
+  });
   //свайп вправо/влево касанием
 
 

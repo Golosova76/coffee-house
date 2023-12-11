@@ -1307,6 +1307,7 @@ body.lock-menu {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 40px;
+  min-height: 506px;
 }
 @media (max-width: 1350px) {
   .tabs-menu__body {
@@ -1442,6 +1443,49 @@ body.lock-menu {
   }
 }
 
+.fade-in {
+  -webkit-animation: fadeIn 0.4s ease-in;
+          animation: fadeIn 0.4s ease-in;
+}
+
+.fade-out {
+  -webkit-animation: fadeOut 0.4s ease-out;
+          animation: fadeOut 0.4s ease-out;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
 .modal {
   position: fixed;
   width: 100%;
