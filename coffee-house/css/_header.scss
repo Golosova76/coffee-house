@@ -13,10 +13,6 @@
 
   }
 
-  // .header__logo
-
-  &__logo {}
-
   // .header__menu
 
   &__menu {
@@ -144,10 +140,6 @@
     }
   }
 
-  // .menu-header__item
-
-  &__item {}
-
   // .menu-header__link
 
   &__link {
@@ -185,7 +177,7 @@
     width: 44px;
     height: 44px;
     border-radius: 100px;
-    border: 1px solid var(--border-dark, #665F55);
+    border: 1px solid $colorBorderDark;
 
     span {
       width: 16px;
@@ -196,6 +188,12 @@
     }
 
     &.menu-active {
+      background-color: $colorBackgroundContainer;
+
+      span {
+        background-color: $colorTextLight;
+      }
+
       gap: 0;
 
       .icon-menu__top {
