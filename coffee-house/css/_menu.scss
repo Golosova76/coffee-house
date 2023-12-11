@@ -51,10 +51,10 @@ body {
   // .menu__load
 
   &__load {
-    display: none;
+    //display: none;
 
     @include media-query-max-width(medium) {
-      display: block;
+      //display: block;
     }
   }
 
@@ -188,13 +188,7 @@ body {
 
   // .tabs-menu__item
 
-  &__item {
-    @include media-query-max-width(medium) {
-      &.conceal {
-        display: none;
-      }
-    }
-  }
+  &__item {}
 
   // .tabs-menu__card
 
@@ -207,7 +201,6 @@ body {
     width: 100%;
     min-height: 506px;
     cursor: pointer;
-
   }
 
   // .tabs-menu__image
