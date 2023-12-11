@@ -7,16 +7,16 @@ document.addEventListener("DOMContentLoaded", function() {
   const nextButton = document.querySelector('.slider__button-next');
   const progressBar = document.querySelectorAll('.slider__pagination .slider__line');
   const sliderInterval = 5000; //автоматперелистывание 5 сек
-  const progressIntervalStep = 100;
   let slideWidth = slides[0].offsetWidth;
   let currentSlide = 0;
   let autoSliderInterval;
   let progressInterval;
   let progressAnimationFrame;
-  let currentProgress;
-  let cursorHovered = false; // Добавленная переменная
-  let progressOnHover = 0; // Добавленная переменная
-
+  let progress = 0; // переменная для отслеживания прогресса
+  let startTime = Date.now(); // переменная для отслеживания времени старта
+  let cursorHovered = false;
+  const MAX_PROGRESS = 100; //макс значение прогресса в %
+  
     
   function getSlideOffset(index) {
     return -(index * slideWidth);
@@ -64,42 +64,47 @@ document.addEventListener("DOMContentLoaded", function() {
     startAutoSlider();
   }
 
-  function startProgressBar() {
-    let progress = 0;
-    let startTime;
-    
-    function animate() {
-      const currentTime = Date.now();
-      const elapsedTime = currentTime - startTime;
+  nextButton.addEventListener('click', moveNext);
+  prevButton.addEventListener('click', movePrev);
 
-      progress += (elapsedTime / (sliderInterval / progressIntervalStep));
+  function startProgressBar() {
+    function animate() {
+      if (!cursorHovered) {
+        progress = Math.min((Date.now() - startTime) / sliderInterval * MAX_PROGRESS, MAX_PROGRESS);
+      }
 
       progressBar[currentSlide].style.background = `linear-gradient(to right, 
-        #665F55 ${Math.min(progress, 100)}%,
-        #C1B6AD ${Math.min(progress, 100)}%)`;
+        #665F55 ${progress}%,
+        #C1B6AD ${progress}%)`;
 
-      if (progress < 100) {
-          startTime = currentTime;
-          progressAnimationFrame = requestAnimationFrame(animate);
+      if (progress < MAX_PROGRESS) {
+        progressAnimationFrame = requestAnimationFrame(animate);
       } else {
-          resetProgressBar();
-          if (!cursorHovered) {
-            currentProgress = 0; // Сбросить текущий 
-            //прогресс только если курсор не был наведен
-          }
+        resetProgressBar();
+        moveNext();
       }
     }
-
-    startTime = Date.now();
+    cancelAnimationFrame(progressAnimationFrame);
     progressAnimationFrame = requestAnimationFrame(animate);
   }
 
-  function resetProgressBar(slideIndex) {
-    progressBar[currentSlide].style.background = '#C1B6AD';
+  function resetProgressBar() {
+    progressBar.forEach(bar => bar.style.background = '#C1B6AD');
+    startTime = Date.now(); // Сброс времени начала
+    progress = 0; // Сброс прогресса
   }
 
-  nextButton.addEventListener('click', moveNext);
-  prevButton.addEventListener('click', movePrev);
+  // Функции обработки событий мыши
+  wrapper.addEventListener('mouseenter', function() {
+    cursorHovered = true;
+    cancelAnimationFrame(progressAnimationFrame); // Остановить анимацию прогресса
+  });
+
+  wrapper.addEventListener('mouseleave', function() {
+    cursorHovered = false;
+    startProgressBar(); // Возобновить анимацию прогресса
+  });
+
 
   //свайп вправо/влево касанием 
   let touchStartX = 0;
@@ -126,31 +131,7 @@ document.addEventListener("DOMContentLoaded", function() {
       moveNext();
     }
   }
-
- //остановка при наведении
-
-  wrapper.addEventListener('mouseenter', function() {
-  stopCarousel();
-  cursorHovered = true;
-  currentProgress = progressOnHover;
-});
-
-wrapper.addEventListener('mouseleave', function() {
-  startCarousel();
-  cursorHovered = false;
-  currentProgress = progressOnHover;
-});
-
-  function stopCarousel() {
-    clearInterval(autoSliderInterval);
-    if (!cursorHovered) {
-    cancelAnimationFrame(progressAnimationFrame);
-  }
-  }
-
-  function startCarousel() {
-    startAutoSlider();
-  }
+  //свайп вправо/влево касанием
 
 
   //DON'T TOUCH!!!!!
