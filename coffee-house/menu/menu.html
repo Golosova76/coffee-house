@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Menu</title>
+</head>
+
+<body>
+  <div class="wrapper">
+    <header class="header">
+      <div class="header__container">
+        <a class="header__logo" href="../">
+          <img src="../img/header/logo.png" alt="Logotype">
+        </a>
+        <div class="header__menu menu-header">
+          <nav class="menu-header__body">
+            <ul class="menu-header__list">
+              <li class="menu-header__item">
+                <a href="../#favorite" class="menu-header__link">Favorite coffee</a>
+              </li>
+              <li class="menu-header__item">
+                <a href="../#about" class="menu-header__link">About</a>
+              </li>
+              <li class="menu-header__item">
+                <a href="../#mobile" class="menu-header__link">Mobile app</a>
+              </li>
+              <li class="menu-header__item">
+                <a href="#footer" class="menu-header__link" data-goto=".footer-menu">Contact us</a>
+              </li>
+            </ul>
+          </nav>
+          <a class="header__icon-menu" href="#!">Menu</a>
+        </div>
+        <button class="header__button-icon icon-menu" type="button">
+          <span class="icon-menu__top"></span>
+          <span class="icon-menu__bottom"></span>
+        </button>
+      </div>
+    </header>
+    <main class="page">
+      <section class="page__menu menu">
+        <div class="menu__container">
+          <h1 class="visually-hidden">Menu</h1>
+          <div class="menu__text">Behind each of our cups hides an <span>amazing surprise</span></div>
+          <div class="menu__tabs tabs-menu">
+            <div class="tabs-menu__nav">
+              <button class="tabs-menu__button button-coffee menu-button-active">
+                <span class="tabs-menu__btn-img">
+                  <img src="../img/menu/icons/coffee.svg" alt="Coffee">
+                </span>
+                <span class="tabs-menu__btn-text">Coffee</span>
+              </button>
+              <button class="tabs-menu__button button-tea">
+                <span class="tabs-menu__btn-img">
+                  <img src="../img/menu/icons/tea.svg" alt="Tea">
+                </span>
+                <span class="tabs-menu__btn-text">Tea</span>
+              </button>
+              <button class="tabs-menu__button button-dessert">
+                <span class="tabs-menu__btn-img">
+                  <img src="../img/menu/icons/dessert.svg" alt="Dessert">
+                </span>
+                <span class="tabs-menu__btn-text">Dessert</span>
+              </button>
+            </div>
+            <ul class="tabs-menu__body"></ul>
+          </div>
+          <div class="menu__load">
+            <button class="menu__loader button-loader">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M21.8883 13.5C21.1645 18.3113 17.013 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C16.1006 2 19.6248 4.46819 21.1679 8" stroke="#403F3D" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M17 8H21.4C21.7314 8 22 7.73137 22 7.4V3" stroke="#403F3D" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer footer-menu" id="footer">
+      <div class="footer__container footer__container_menu">
+        <div class="footer__body">
+          <div class="footer__content">
+            <div class="footer__text">Sip, Savor, Smile. <span>It’s coffee time!</span></div>
+            <div class="footer__icons icons-socials">
+              <ul class="icons-socials__items">
+                <li class="icons-socials__item">
+                  <a class="icons-socials__link" href="#!">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <path d="M23 3.01006C23 3.01006 20.9821 4.20217 19.86 4.54006C19.2577 3.84757 18.4573 3.35675 17.567 3.13398C16.6767 2.91122 15.7395 2.96725 14.8821 3.29451C14.0247 3.62177 13.2884 4.20446 12.773 4.96377C12.2575 5.72309 11.9877 6.62239 12 7.54006V8.54006C10.2426 8.58562 8.50127 8.19587 6.93101 7.4055C5.36074 6.61513 4.01032 5.44869 3 4.01006C3 4.01006 -1 13.0101 8 17.0101C5.94053 18.408 3.48716 19.109 1 19.0101C10 24.0101 21 19.0101 21 7.51006C20.9991 7.23151 20.9723 6.95365 20.92 6.68006C21.9406 5.67355 23 3.01006 23 3.01006Z" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </a>
+                </li>
+                <li class="icons-socials__item">
+                  <a class="icons-socials__link" href="#!">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M3 16V8C3 5.23858 5.23858 3 8 3H16C18.7614 3 21 5.23858 21 8V16C21 18.7614 18.7614 21 16 21H8C5.23858 21 3 18.7614 3 16Z" />
+                      <path d="M17.5 6.51L17.51 6.49889" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </a>
+                </li>
+                <li class="icons-socials__item">
+                  <a class="icons-socials__link" href="#!">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <path d="M17 2H14C12.6739 2 11.4021 2.52678 10.4645 3.46447C9.52678 4.40215 9 5.67392 9 7V10H6V14H9V22H13V14H16L17 10H13V7C13 6.73478 13.1054 6.48043 13.2929 6.29289C13.4804 6.10536 13.7348 6 14 6H17V2Z" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer__contacts contact-footer">
+            <div class="contact-footer__text">Contact us</div>
+            <ul class="contact-footer__items">
+              <li class="contact-footer__item">
+                <a class="contact-footer__link" href="https://www.google.com/maps/place/Greene+Ave,+Los+Angeles,+CA,+%D0%A1%D0%A8%D0%90/@33.9894464,-118.4292678,17z/data=!3m1!4b1!4m6!3m5!1s0x80c2ba706b54e0db:0x78e966911639fdd0!8m2!3d33.989442!4d-118.4266929!16s%2Fg%2F1tgx6wf3?entry=ttu" target="_blank">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M16.6663 8.33329C16.6663 12.0152 9.99967 18.3333 9.99967 18.3333C9.99967 18.3333 3.33301 12.0152 3.33301 8.33329C3.33301 4.65139 6.31778 1.66663 9.99967 1.66663C13.6816 1.66663 16.6663 4.65139 16.6663 8.33329Z" stroke="#E1D4C9" stroke-width="1.5" />
+                    <path d="M10.0003 9.16667C10.4606 9.16667 10.8337 8.79357 10.8337 8.33333C10.8337 7.8731 10.4606 7.5 10.0003 7.5C9.54009 7.5 9.16699 7.8731 9.16699 8.33333C9.16699 8.79357 9.54009 9.16667 10.0003 9.16667Z" fill="#E1D4C9" stroke="#E1D4C9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                  8558 Green Rd., LA
+                </a>
+              </li>
+              <li class="contact-footer__item">
+                <a class="contact-footer__link" href="tel:+16035550123">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M15.0984 12.2516L11.6665 12.9166C9.34845 11.7531 7.91654 10.4166 7.08321 8.33329L7.72483 4.89154L6.51197 1.66663L3.72946 1.66663C2.60191 1.66663 1.71466 2.59958 1.90108 3.71161C2.29888 6.08454 3.37231 10.0391 6.24987 12.9166C9.27338 15.9401 13.5661 17.3318 16.1378 17.9288C17.299 18.1983 18.3332 17.2908 18.3332 16.0988L18.3332 13.4843L15.0984 12.2516Z" stroke="#E1D4C9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                  +1 (603) 555-0123
+                </a>
+              </li>
+              <li class="contact-footer__item">
+                <div class="contact-footer__schedule">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <g clip-path="url(#clip0_217_1736)">
+                      <path d="M10 5L10 10L15 10" stroke="#E1D4C9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M10.0003 18.3333C14.6027 18.3333 18.3337 14.6023 18.3337 9.99996C18.3337 5.39759 14.6027 1.66663 10.0003 1.66663C5.39795 1.66663 1.66699 5.39759 1.66699 9.99996C1.66699 14.6023 5.39795 18.3333 10.0003 18.3333Z" stroke="#E1D4C9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_217_1736">
+                        <rect width="20" height="20" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                  Mon-Sat: 9:00 AM – 23:00 PM
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <div class="modal modal-menu">
+      <div class="modal-menu__body">
+        <div class="modal-menu__content">
+          <div class="modal-menu__left">
+            <div class="modal-menu__image-ibg">
+              <img src="../img/menu/coffee/coffee-1.jpg" alt="Coffee">
+            </div>
+          </div>
+          <div class="modal-menu__right">
+            <div class="modal-menu__top">
+              <h3 class="modal-menu__title">Irish coffee</h3>
+              <div class="modal-menu__text">Fragrant black coffee with Jameson Irish whiskey and whipped milk</div>
+            </div>
+            <div class="modal-menu__mass menu-size">
+              <div class="menu-size__subtitle">Size</div>
+              <div class="menu-size__buttons">
+                <button class="menu-size__button button-s size-active" type="button">
+                  <span class="menu-size__name">S</span>
+                  <span class="menu-size__volume">200 ml</span>
+                </button>
+                <button class="menu-size__button button-m" type="button">
+                  <span class="menu-size__name">M</span>
+                  <span class="menu-size__volume">300 ml</span>
+                </button>
+                <button class="menu-size__button button-l" type="button">
+                  <span class="menu-size__name">L</span>
+                  <span class="menu-size__volume">400 ml</span>
+                </button>
+              </div>
+            </div>
+            <div class="modal-menu__additive menu-additives">
+              <div class="menu-additives__subtitle">Additives</div>
+              <div class="menu-additives__buttons">
+                <button class="menu-additives__button button-1" type="button">
+                  <span class="menu-additives__index">1</span>
+                  <span class="menu-additives__name">Sugar</span>
+                </button>
+                <button class="menu-additives__button button-2" type="button">
+                  <span class="menu-additives__index">2</span>
+                  <span class="menu-additives__name">Cinnamon</span>
+                </button>
+                <button class="menu-additives__button button-3" type="button">
+                  <span class="menu-additives__index">3</span>
+                  <span class="menu-additives__name">Syrup</span>
+                </button>
+              </div>
+            </div>
+            <div class="modal-menu__total menu-price">
+              <div class="menu-price__text">Total:</div>
+              <div class="menu-price__count">$7.00</div>
+            </div>
+            <div class="modal-menu__info menu-info">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <g clip-path="url(#clip0_268_9737)">
+                  <path d="M8 7.66663V11" stroke="#403F3D" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M8 5.00667L8.00667 4.99926" stroke="#403F3D" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M8.00016 14.6667C11.6821 14.6667 14.6668 11.6819 14.6668 8.00004C14.6668 4.31814 11.6821 1.33337 8.00016 1.33337C4.31826 1.33337 1.3335 4.31814 1.3335 8.00004C1.3335 11.6819 4.31826 14.6667 8.00016 14.6667Z" stroke="#403F3D" stroke-linecap="round" stroke-linejoin="round" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_268_9737">
+                    <rect width="16" height="16" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+              <div class="menu-info__text">The cost is not final. Download our mobile app to see the final price and place your order. Earn loyalty points and enjoy your favorite coffee with up to 20% discount.</div>
+            </div>
+            <button class="modal-menu__button button-modal-close">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../js/script.js"></script>
+  <script type="module" src="../js/menu.js"></script>
+</body>
+
+</html>

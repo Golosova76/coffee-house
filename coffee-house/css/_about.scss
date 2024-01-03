@@ -1,0 +1,139 @@
+.visually-hidden:not(:focus):not(:active) {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.about {
+
+  // .about__container
+
+  &__container {
+    padding-bottom: 50px;
+    padding-top: 50px;
+  }
+
+  // .about__text
+
+  &__text {
+    @include heading-two;
+    @include margin-bottom40;
+
+    span {
+      font-style: italic;
+      color: $colorTextAccent;
+    }
+
+    @media (max-width: 760px) {
+      font-size: clamp(2rem, -0.5rem + 10.53vw, 4.5rem);
+    }
+
+    @include media-query-max-width(xSmall) {
+      @include heading-mobile-two;
+    }
+  }
+
+  // .about__images
+
+  &__images {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 40px;
+
+    @include media-query-max-width(extraLarge) {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      justify-content: center;
+    }
+  }
+}
+
+
+.image-about {
+
+  // .image-about__line
+
+  &__line {
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: 40px;
+
+    @include media-query-max-width(extraLarge) {
+      justify-content: center;
+    }
+  }
+
+  // .image-about__img
+
+  &__img {
+    //position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 660px;
+    width: 100%;
+
+    img {
+      transition: all 0.3s ease 0s;
+
+      @media (any-hover: hover) {
+        &:hover {
+          transform: scale(0.91);
+        }
+      }
+    }
+
+    @include media-query-max-width(extraLarge) {
+      max-width: 688px;
+      width: 100%;
+    }
+
+
+    // .image-about__img_one
+
+    &_one {
+      grid-row: span 2;
+      max-height: 590px;
+    }
+
+    // .image-about__img_two
+
+    &_two {
+      grid-row: span 1;
+      max-height: 430px;
+
+      @include media-query-max-width(medium) {
+        display: none;
+      }
+    }
+
+    // .image-about__img_three
+
+    &_three {
+      grid-row: span 1;
+      max-height: 430px;
+
+      @include media-query-max-width(medium) {
+        display: none;
+      }
+    }
+
+    // .image-about__img_four
+
+    &_four {
+      grid-row: span 2;
+      max-height: 590px;
+    }
+  }
+}

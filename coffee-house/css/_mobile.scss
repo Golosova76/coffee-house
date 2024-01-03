@@ -1,0 +1,156 @@
+.mobile {
+
+  // .mobile__container
+
+  &__container {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  // .mobile__body
+
+  &__body {
+    display: flex;
+    gap: 100px;
+    justify-content: center;
+    align-items: center;
+
+    @include media-query-max-width(extraLarge) {
+      flex-direction: column;
+    }
+
+    @include media-query-max-width(small) {
+      gap: 40px;
+    }
+  }
+
+  // .mobile__content
+
+  &__content {
+    flex: 0 1 50%;
+  }
+
+  // .mobile__title
+
+  &__title {
+    @include heading-two;
+    @include margin-bottom40;
+
+    span {
+      font-style: italic;
+      color: $colorTextAccent;
+    }
+
+    @include media-query-max-width(small) {
+      font-size: clamp(2rem, -2.847rem + 20.41vw, 4.5rem);
+    }
+
+    @include media-query-max-width(xSmall) {
+      @include heading-mobile-two;
+    }
+  }
+
+  // .mobile__text
+
+  &__text {
+    @include body-medium;
+    @include margin-bottom40;
+  }
+
+  // .mobile__links
+
+  &__links {
+    display: flex;
+    gap: 20px;
+
+    @include media-query-max-width(small) {
+      flex-direction: column;
+    }
+  }
+
+  // .mobile__link
+
+  &__link {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    border-radius: 100px;
+    border: 1px solid $colorBorderDark;
+    max-width: 200px;
+    max-height: 64px;
+    width: 100%;
+    transition: all 0.4s ease 0s;
+
+    svg {
+      margin-right: 8px;
+      fill: $colorTextDark;
+      transition: all 0.4s ease 0s;
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: $colorBackgroundContainer;
+        color: $colorTextLight;
+
+        svg {
+          fill: $colorTextLight;
+        }
+      }
+    }
+
+    // .mobile__link_app
+
+    &_app {}
+
+    // .mobile__link_google
+
+    &_google {}
+  }
+
+  // .mobile__items
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5px;
+  }
+
+  // .mobile__top
+
+  &__top {
+    @include body-caption;
+  }
+
+  // .mobile__bottom
+
+  &__bottom {
+    line-height: $fontLineHeight;
+  }
+
+  // .mobile__image-ibg
+
+  &__image-ibg {
+    flex: 0 1 50%;
+    padding-bottom: 46.33%;
+
+    @include media-query-max-width(extraLarge) {
+      width: 56.3%;
+      padding-bottom: 56.3%;
+    }
+
+    @include media-query-max-width(large) {
+      width: 69.2%;
+      padding-bottom: 69.2%;
+    }
+
+    @include media-query-max-width(medium) {
+      width: 91.6%;
+      padding-bottom: 91.6%;
+    }
+
+    @include media-query-max-width(xSmall) {
+      width: 100%;
+      padding-bottom: 100%;
+    }
+  }
+}

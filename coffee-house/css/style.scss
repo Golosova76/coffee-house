@@ -1,0 +1,77 @@
+@import "_fonts";
+@import "_variables";
+@import "_null";
+
+body {
+  font: $fontWeight $fontSize $fontFamily;
+  color: $colorTextDark;
+  background-color: $mainBackgroundColor;
+}
+
+//============= Общие стили ===============//
+
+html {
+  scroll-behavior: smooth;
+}
+
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  // Прижимаем footer
+  >main {
+    flex: 1 1 auto;
+  }
+
+  // Фикс для слайдеров
+  >* {
+    min-width: 0;
+  }
+}
+
+body {
+  @include media-query-max-width(medium) {
+    &.lock {
+      overflow: hidden;
+    }
+  }
+}
+
+[class*="__container"] {
+  max-width: 1440px; // сначала контейнер был 1360 как на макете, стал 1440 изза padding 40px
+  margin: 0 auto;
+  padding: 0 40px;
+
+  @include media-query-max-width(medium) {
+    max-width: 768px; // сначала контейнер был 688 как на макете, стал 768 изза padding 40px
+  }
+
+  @include media-query-max-width(xSmall) {
+    max-width: 380px; // сначала контейнер был 348 как на макете, стал 380 изза padding 16px
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+}
+
+[class*="-ibg"] {
+  position: relative;
+
+  img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+  }
+}
+
+@import "_header";
+@import "_enjoy";
+@import "_favorite";
+@import "_about";
+@import "_mobile";
+@import "_footer";
+@import "_menu";
+@import "_modal";

@@ -1,0 +1,103 @@
+$fontFamily: "Inter", sans-serif;
+$fontSize: 16px;
+$fontWeight: 600;
+$fontLineHeight: 150%;
+
+
+$colorTextDark: #403F3D;
+$colorTextLight: #E1D4C9;
+$colorTextAccent: #B0907A;
+
+$colorBorderDark: #665F55;
+$colorBorderLight: #C1B6AD;
+
+$colorBackgroundBody: #E1D4C9;
+$colorBackgroundContainer: #665F55;
+$colorBackgroundBackdrop: rgba(64, 63, 61, 0.80);
+
+$mainBackgroundColor: $colorBackgroundBody;
+
+@mixin heading {
+  font-size: 72px;
+  line-height: 105%;
+}
+
+@mixin heading-two {
+  font-size: 60px;
+  line-height: 125%;
+}
+
+@mixin heading-mobile {
+  font-size: 42px;
+  line-height: 115%;
+}
+
+@mixin heading-mobile-two {
+  font-size: 32px;
+  line-height: 125%;
+}
+
+@mixin heading-three {
+  font-size: 24px;
+  line-height: 125%;
+}
+
+@mixin body-medium {
+  font-weight: 400;
+  line-height: $fontLineHeight;
+}
+
+@mixin body-caption {
+  font-size: 10px;
+  line-height: 140%;
+}
+
+@mixin burger-link {
+  font-size: 32px;
+  line-height: 125%;
+}
+
+@mixin margin-bottom40 {
+  &:not(:last-child) {
+    margin-bottom: 40px;
+  }
+}
+
+$breakpoints: (
+  xSmall: 380px,
+  mobileSmall: 479.98px,
+  small: 575.98px,
+  medium: 768px,
+  mediumTop: 769px,
+  large: 991.98px,
+  extraLarge: 1200px,
+);
+
+@mixin media-query-max-width($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    $max-width: map-get($breakpoints, $breakpoint);
+
+    @media (max-width: $max-width) {
+      @content;
+    }
+  }
+
+  @else {
+    @error "Undefined breakpoint #{$breakpoint}. Please define it in $breakpoints.";
+  }
+}
+
+
+@mixin media-query-min-width($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    $min-width: map-get($breakpoints, $breakpoint);
+
+    @media (min-width: $min-width) {
+      @content;
+    }
+  }
+
+  @else {
+    @error "Undefined breakpoint #{$breakpoint}. Please define it in $breakpoints.";
+  }
+}
